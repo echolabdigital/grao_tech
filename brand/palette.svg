@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="220" viewBox="0 0 720 220">
+  <style>text { font-family: 'Trebuchet MS', sans-serif; }</style>
+  <rect width="720" height="220" fill="#FAF3E6"/>
+
+  <!-- Swatches -->
+  <rect x="10"  y="20" width="90" height="110" rx="4" fill="#120800"/>
+  <rect x="108" y="20" width="90" height="110" rx="4" fill="#2E1206"/>
+  <rect x="206" y="20" width="90" height="110" rx="4" fill="#B8421A"/>
+  <rect x="304" y="20" width="90" height="110" rx="4" fill="#D4851A"/>
+  <rect x="402" y="20" width="90" height="110" rx="4" fill="#E8B840"/>
+  <rect x="500" y="20" width="90" height="110" rx="4" fill="#F0D080"/>
+  <rect x="598" y="20" width="110" height="110" rx="4" fill="#FAF3E6" stroke="#D4C0A0" stroke-width="1.5"/>
+
+  <!-- Name labels -->
+  <text x="55"  y="148" text-anchor="middle" font-size="10" font-weight="700" fill="#2E1206">Espresso</text>
+  <text x="153" y="148" text-anchor="middle" font-size="10" font-weight="700" fill="#2E1206">Terra</text>
+  <text x="251" y="148" text-anchor="middle" font-size="10" font-weight="700" fill="#2E1206">Terracota</text>
+  <text x="349" y="148" text-anchor="middle" font-size="10" font-weight="700" fill="#2E1206">Caramel</text>
+  <text x="447" y="148" text-anchor="middle" font-size="10" font-weight="700" fill="#2E1206">Gold</text>
+  <text x="545" y="148" text-anchor="middle" font-size="10" font-weight="700" fill="#2E1206">Wheat</text>
+  <text x="653" y="148" text-anchor="middle" font-size="10" font-weight="700" fill="#2E1206">Cream</text>
+
+  <!-- Hex labels -->
+  <text x="55"  y="162" text-anchor="middle" font-size="9" fill="#8C7058">#120800</text>
+  <text x="153" y="162" text-anchor="middle" font-size="9" fill="#8C7058">#2E1206</text>
+  <text x="251" y="162" text-anchor="middle" font-size="9" fill="#8C7058">#B8421A</text>
+  <text x="349" y="162" text-anchor="middle" font-size="9" fill="#8C7058">#D4851A</text>
+  <text x="447" y="162" text-anchor="middle" font-size="9" fill="#8C7058">#E8B840</text>
+  <text x="545" y="162" text-anchor="middle" font-size="9" fill="#8C7058">#F0D080</text>
+  <text x="653" y="162" text-anchor="middle" font-size="9" fill="#8C7058">#FAF3E6</text>
+
+  <!-- Use labels -->
+  <text x="55"  y="175" text-anchor="middle" font-size="8" fill="#8C7058">Texto / fundo</text>
+  <text x="153" y="175" text-anchor="middle" font-size="8" fill="#8C7058">Fundo escuro</text>
+  <text x="251" y="175" text-anchor="middle" font-size="8" fill="#8C7058">CTA / botões</text>
+  <text x="349" y="175" text-anchor="middle" font-size="8" fill="#8C7058">Hover / ativo</text>
+  <text x="447" y="175" text-anchor="middle" font-size="8" fill="#8C7058">Acento / destaque</text>
+  <text x="545" y="175" text-anchor="middle" font-size="8" fill="#8C7058">Texto s/ fundo esc.</text>
+  <text x="653" y="175" text-anchor="middle" font-size="8" fill="#8C7058">Fundo principal</text>
+
+  <!-- Footer -->
+  <text x="10" y="208" font-size="12" fill="#B8421A" font-weight="700">GRÃO TECH</text>
+  <text x="97" y="208" font-size="11" fill="#8C7058"> · Paleta Oficial v1.0 · by NewtonIA</text>
+</svg>

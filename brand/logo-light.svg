@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="48" viewBox="0 0 220 48">
+  <rect width="220" height="48" fill="#120800" rx="4"/>
+  <!-- MARK -->
+  <g transform="translate(1.5, 0.3)">
+    <path d="M17.3 2 C27.7 8.3, 27.7 29.7, 17.3 36 C6.9 29.7, 6.9 8.3, 17.3 2 Z"
+      fill="#B8421A"/>
+    <line x1="17.3" y1="10.2" x2="17.3" y2="27.8"
+      stroke="#E8B840" stroke-width="1.65" stroke-linecap="round"/>
+    <circle cx="17.3" cy="13.5" r="1.4" fill="#E8B840"/>
+    <circle cx="20.5" cy="19"   r="2.0" fill="#E8B840"/>
+    <circle cx="17.3" cy="24.5" r="1.4" fill="#E8B840"/>
+    <path d="M17.3 2 C27.7 8.3, 27.7 29.7, 17.3 36 C6.9 29.7, 6.9 8.3, 17.3 2 Z"
+      fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.2"/>
+  </g>
+  <!-- WORDMARK light -->
+  <text x="38" y="27"
+    font-family="Georgia,'Times New Roman',serif"
+    font-size="19.2" font-weight="700"
+    fill="#FFFCF5" letter-spacing="1.35">GRÃO</text>
+  <rect x="38" y="29" width="98" height="1.8" fill="#B8421A" opacity=".8"/>
+  <text x="38" y="40"
+    font-family="'Trebuchet MS',sans-serif"
+    font-size="9.1" font-weight="700"
+    fill="rgba(255,250,240,.42)" letter-spacing="10.6">TECH</text>
+  <text x="38" y="46"
+    font-family="'Trebuchet MS',sans-serif"
+    font-size="5.8"
+    fill="rgba(255,250,240,.22)" letter-spacing="3.1">DO GRÃO AO DIGITAL</text>
+</svg>
