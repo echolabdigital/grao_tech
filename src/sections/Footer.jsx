@@ -19,7 +19,7 @@ const COLS = [
 export default function Footer() {
   return (
     <footer style={{
-      background: "#200A02",
+      background: "#4A2010",
       borderTop: "1px solid rgba(255,255,255,.06)",
       padding: "56px 1.5rem 28px",
     }}>

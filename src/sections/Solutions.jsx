@@ -70,7 +70,7 @@ export default function Solutions() {
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+          gridTemplateColumns: "repeat(2, 1fr)",
           gap: "1px",
           background: B.cream2,
           outline: `1px solid ${B.cream2}`,
