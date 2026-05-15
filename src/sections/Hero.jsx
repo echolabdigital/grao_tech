@@ -21,7 +21,7 @@ export default function Hero({ segment, setSegment }) {
   return (
     <section style={{
       minHeight: "100vh",
-      background: `linear-gradient(150deg, #1C0800 0%, #2E1206 55%, #1C0800 100%)`,
+      background: `linear-gradient(150deg, #2C1208 0%, #401A0C 55%, #2C1208 100%)`,
       display: "flex", flexDirection: "column", justifyContent: "center",
       padding: "110px 1.5rem 80px",
       position: "relative", overflow: "hidden",

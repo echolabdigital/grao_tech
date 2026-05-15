@@ -6,11 +6,11 @@ import { useState, useEffect, useRef } from "react";
 ══════════════════════════════════════════════ */
 export const B = {
   // Dark UI — marrom quente, não cinza frio
-  bg:        "#160800",
-  surface:   "#1E0D02",
-  surface2:  "#2A1206",
-  line:      "rgba(255,255,255,.08)",
-  lineHi:    "rgba(255,255,255,.15)",
+  bg:        "#2C1208",
+  surface:   "#371708",
+  surface2:  "#42200E",
+  line:      "rgba(255,255,255,.09)",
+  lineHi:    "rgba(255,255,255,.18)",
 
   // Text on dark
   text:      "#FAF9F7",
