@@ -209,7 +209,7 @@ function IntegrationsHub() {
             {[
               { icon: "🛵", name: "iFood",            desc: "Sync de cardápio e pedidos",   color: "#EA1D2C" },
               { icon: "📱", name: "WhatsApp Business", desc: "Robô de atendimento 24h",      color: "#25D366" },
-              { icon: "🏧", name: "PDV / ERP",         desc: "Preços e estoque em tempo real",color: B.gold   },
+              { icon: "🏧", name: "ERP",                desc: "Preços e estoque em tempo real",color: B.gold   },
               { icon: "💳", name: "PIX + Cartão",      desc: "Checkout sem intermediários",  color: "#32BCAD" },
             ].map(it => (
               <div
