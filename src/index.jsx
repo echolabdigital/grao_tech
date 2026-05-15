@@ -72,7 +72,7 @@ function HowItWorks() {
     {
       n: "01",
       title: "Demo em 24h",
-      desc: "Demonstração gratuita com especialista. Entendemos o seu negócio antes de mostrar qualquer proposta.",
+      desc: "Demonstração gratuita com especialista. Entendemos o seu negócio antes de qualquer proposta.",
     },
     {
       n: "02",
@@ -81,8 +81,8 @@ function HowItWorks() {
     },
     {
       n: "03",
-      title: "No ar em 48h",
-      desc: "Site, app e WhatsApp publicados. Seus clientes já podem pedir no primeiro fim de semana.",
+      title: "No ar em 7 dias",
+      desc: "Plataforma configurada, testada e publicada. Seus clientes já podem pedir na primeira semana.",
     },
     {
       n: "04",
@@ -108,7 +108,7 @@ function HowItWorks() {
             marginBottom: "4rem",
           }}>
             Do zero ao digital em{" "}
-            <em style={{ color: B.accent }}>menos de 48 horas.</em>
+            <em style={{ color: B.accent }}>7 dias.</em>
           </h2>
         </Fade>
 

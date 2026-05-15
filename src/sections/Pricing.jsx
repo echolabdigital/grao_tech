@@ -4,9 +4,9 @@ const PLANS = [
   {
     name: "Essencial",
     setup: 1499,
-    monthly: 197,
+    monthly: 399,
     highlight: false,
-    desc: "Site, cardápio e pedidos no ar em até 48 horas.",
+    desc: "Site, cardápio e pedidos no ar em até 7 dias.",
     cta: "Começar",
     features: [
       "Site de vendas com sua marca",
@@ -16,19 +16,18 @@ const PLANS = [
       "Painel de gestão completo",
       "Suporte via chat",
     ],
-    off: ["App iOS + Android", "Robô WhatsApp", "Clube de fidelidade"],
+    off: ["Agente IA WhatsApp 24h", "Clube de fidelidade"],
   },
   {
     name: "Profissional",
     setup: 2999,
-    monthly: 397,
+    monthly: 799,
     highlight: true,
     desc: "Plataforma completa para quem quer escalar e fidelizar.",
     cta: "Quero o Profissional",
     features: [
       "Tudo do Essencial",
-      "App iOS + Android",
-      "Robô WhatsApp 24h",
+      "Agente IA WhatsApp 24h",
       "Clube de pontos e fidelidade",
       "Gestão de encomendas",
       "Relatórios avançados",
@@ -46,9 +45,6 @@ const PLANS = [
     features: [
       "Tudo do Profissional",
       "Múltiplas unidades",
-      "PDV integrado",
-      "Vendas B2B",
-      "Painel de produção em TV",
       "Integrações customizadas",
       "Gerente de conta dedicado",
     ],
@@ -211,7 +207,7 @@ export default function Pricing() {
             fontFamily: FONTS.sys, fontSize: ".72rem",
             color: B.muted,
           }}>
-            Sem fidelidade obrigatória · Suporte em português · No ar em 48h
+            Sem fidelidade obrigatória · Suporte em português · No ar em até 7 dias
           </p>
         </Fade>
       </div>

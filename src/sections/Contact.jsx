@@ -60,7 +60,7 @@ export default function Contact() {
 
             {[
               ["Demo gratuita em 24h",      "●"],
-              ["No ar em menos de 48 horas","●"],
+              ["No ar em até 7 dias","●"],
               ["Sem fidelidade obrigatória", "●"],
               ["Suporte em português",       "●"],
             ].map(([text]) => (
