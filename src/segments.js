@@ -21,7 +21,7 @@ export const SEGMENTS = [
     sub: "App e site com sua marca, encomendas pagas online, robô no WhatsApp e clube de fidelidade. Os seus clientes ficam com você — não com o marketplace.",
     cta:       "Quero meu sistema",
     ctaDemo:   "Ver demonstração",
-    channels:  ["App Próprio", "iFood", "WhatsApp", "PIX", "Encomendas"],
+    channels:  ["iFood", "WhatsApp", "PIX", "Encomendas", "Site"],
     stat:      { val: "+38%", label: "em vendas diretas", desc: "nos primeiros 60 dias" },
 
     // Dores
@@ -66,7 +66,7 @@ export const SEGMENTS = [
     sub: "QR code na mesa, assinatura de café, pedidos pelo WhatsApp e painel de produção na tela — sem tablet de terceiro, sem comissão de ninguém.",
     cta:       "Digitalizar meu café",
     ctaDemo:   "Ver demonstração",
-    channels:  ["QR Code", "WhatsApp", "Assinatura", "App Próprio", "PIX"],
+    channels:  ["QR Code", "WhatsApp", "Assinatura", "PIX", "Site"],
     stat:      { val: "+22%", label: "no ticket médio", desc: "com pedido pelo QR code" },
 
     pains: [
@@ -109,7 +109,7 @@ export const SEGMENTS = [
     sub: "App de delivery com sua marca, reservas pelo WhatsApp, cardápio digital e programa de fidelidade — sem intermediário entre você e seu cliente.",
     cta:       "Quero delivery próprio",
     ctaDemo:   "Ver demonstração",
-    channels:  ["App Próprio", "iFood", "Reservas", "WhatsApp", "PIX"],
+    channels:  ["iFood", "Reservas", "WhatsApp", "PIX", "Site"],
     stat:      { val: "−27%", label: "em comissão paga", desc: "migrando para canal direto" },
 
     pains: [

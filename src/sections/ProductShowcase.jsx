@@ -153,7 +153,7 @@ export default function ProductShowcase({ segment: s }) {
                   {[
                     { label: "Pedidos hoje",    val: "38",        sub: "+12% vs ontem",  color: s.accent },
                     { label: "Faturamento",     val: "R$ 2.840",  sub: "6 canais ativos",color: "#16A34A" },
-                    { label: "Novos clientes",  val: "7",         sub: "via app próprio", color: "#3B82F6" },
+                    { label: "Novos clientes",  val: "7",         sub: "via canal direto", color: "#3B82F6" },
                   ].map(m => (
                     <div key={m.label} style={{
                       background: "rgba(255,255,255,.03)",
