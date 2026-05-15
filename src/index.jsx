@@ -1,38 +1,42 @@
+import { useState } from "react";
 import { GLOBAL_CSS } from "./App";
-import Nav        from "./sections/Nav";
-import Hero       from "./sections/Hero";
-import Solutions  from "./sections/Solutions";
-import Pricing    from "./sections/Pricing";
-import Contact    from "./sections/Contact";
-import Footer     from "./sections/Footer";
+import { SEGMENTS } from "./segments";
+import Nav          from "./sections/Nav";
+import Hero         from "./sections/Hero";
+import PainPoints   from "./sections/PainPoints";
+import Solutions    from "./sections/Solutions";
+import ProductShowcase from "./sections/ProductShowcase";
+import DemoAccess   from "./sections/DemoAccess";
+import Pricing      from "./sections/Pricing";
+import Contact      from "./sections/Contact";
+import Footer       from "./sections/Footer";
 
-/* ──────────────────────────────────────────────
-   GRÃO TECH — Landing Page
-   by NewtonIA
-
-   Stack: React 18, CSS-in-JS (style props)
-   No external CSS dependencies.
-
-   To run:
-     npx create-react-app graotech-app
-     cd graotech-app
-     cp -r src/* src/
-     npm start
-──────────────────────────────────────────────── */
 export default function GraoTech() {
+  const [segment, setSegment] = useState(SEGMENTS[0]);
+
   return (
     <>
       <style>{GLOBAL_CSS}</style>
       <Nav />
-      <Hero />
+      <Hero segment={segment} setSegment={setSegment} />
 
-      {/* Proof strip: integrations */}
+      {/* Proof strip */}
       <ProofStrip />
 
+      <PainPoints segment={segment} />
       <Solutions />
+      <ProductShowcase segment={segment} />
+
+      {/* Como funciona */}
       <HowItWorks />
+
+      {/* Integrações */}
       <IntegrationsHub />
-      <Testimonials />
+
+      {/* Depoimentos */}
+      <Testimonials segment={segment} />
+
+      <DemoAccess segment={segment} />
       <Pricing />
       <Contact />
       <Footer />
@@ -40,18 +44,18 @@ export default function GraoTech() {
   );
 }
 
-/* ── quick inline sections ── */
+/* ── inline sections ── */
 import { B, Fade } from "./App";
 import { GTMark  } from "./Logo";
 
 function ProofStrip() {
   const items = [
-    { icon:"🛵", name:"iFood"       },
-    { icon:"📱", name:"WhatsApp"    },
-    { icon:"💳", name:"PIX"         },
-    { icon:"🏧", name:"Stone"       },
-    { icon:"📦", name:"Melhor Envio"},
-    { icon:"📊", name:"Bling ERP"   },
+    { icon:"🛵", name:"iFood"        },
+    { icon:"📱", name:"WhatsApp"     },
+    { icon:"💳", name:"PIX"          },
+    { icon:"🏧", name:"Stone"        },
+    { icon:"📦", name:"Melhor Envio" },
+    { icon:"📊", name:"Bling ERP"    },
   ];
   return (
     <div style={{ background:B.cream2, borderTop:`1px solid ${B.latte}`,
@@ -179,6 +183,7 @@ function IntegrationsHub() {
               </div>
             ))}
           </Fade>
+
           {/* Orbit diagram */}
           <Fade delay={.2}>
             <div style={{ position:"relative", height:440,
@@ -222,15 +227,21 @@ function IntegrationsHub() {
   );
 }
 
-function Testimonials() {
-  const reviews = [
-    { name:"Carlos Menezes", role:"Padaria Dom Trigo · Florianópolis, SC",
+function Testimonials({ segment }) {
+  const seg = segment;
+  const allReviews = [
+    { name:"Carlos Menezes",  role:"Padaria Dom Trigo · Florianópolis, SC",
       text:"Em 2 meses do app, as vendas diretas subiram 38%. Paramos de pagar taxa pro iFood no que era pedido via WhatsApp.", i:"C" },
-    { name:"Ana Luísa Ferreira", role:"Confeitaria Ateliê do Sabor · Curitiba, PR",
-      text:"O sistema de encomendas mudou nossa vida. Nada mais passa em branco. O cliente paga na hora, a gente produz com calma.", i:"A" },
-    { name:"Roberto Takahashi", role:"Panificadora Pão d'Ouro · São Paulo, SP",
-      text:"Unificamos 4 unidades no mesmo painel. Antes era uma confusão. Hoje o gerente acompanha tudo de um tablet.", i:"R" },
+    { name:"Ana Luísa Ferreira", role:"Adega Terroir · Curitiba, PR",
+      text:"O clube de assinantes saiu do zero para 140 clientes em 4 meses. Receita recorrente, sem marketplace, sem comissão.", i:"A" },
+    { name:"Roberto Takahashi", role:"Restaurante Prato Cheio · São Paulo, SP",
+      text:"Saímos de 80% dos pedidos pelo iFood para 45% em seis meses. O ticket do app próprio é 18% maior.", i:"R" },
+    { name:"Priya Mendonça", role:"Café Grão Nobre · Belo Horizonte, MG",
+      text:"O QR Code na mesa aumentou o ticket médio em 22%. A fila do balcão caiu pela metade.", i:"P" },
   ];
+
+  const featured = seg.testimonial;
+
   return (
     <section id="clientes" style={{
       background:`linear-gradient(160deg,${B.brown},${B.terra})`,
@@ -242,12 +253,48 @@ function Testimonials() {
             display:"block", marginBottom:".6rem" }}>Clientes</span>
           <h2 style={{ fontFamily:"Georgia,serif", fontSize:"clamp(2rem,4vw,3rem)",
             color:B.cream, fontWeight:400, marginBottom:"3.5rem" }}>
-            Padarias que já cresceram.
+            Negócios que já cresceram.
           </h2>
         </Fade>
+
+        {/* Featured quote for active segment */}
+        <Fade>
+          <div style={{
+            background:"rgba(255,255,255,.1)",
+            border:"1px solid rgba(255,255,255,.2)",
+            padding:"2.4rem", marginBottom:"1.5px",
+            backdropFilter:"blur(4px)",
+          }}>
+            <div style={{ marginBottom:"1rem" }}>
+              {"★★★★★".split("").map((_,j) => (
+                <span key={j} style={{ color:B.gold, fontSize:"1rem" }}>★</span>
+              ))}
+            </div>
+            <p style={{ fontFamily:"Georgia,serif", fontSize:"1.08rem",
+              fontStyle:"italic", color:"rgba(250,243,230,.92)",
+              lineHeight:1.8, marginBottom:"1.4rem", maxWidth:700 }}>"{featured.text}"</p>
+            <div style={{ display:"flex", alignItems:"center", gap:".8rem" }}>
+              <div style={{ width:44, height:44, borderRadius:"50%",
+                background:B.terra, display:"flex", alignItems:"center",
+                justifyContent:"center", flexShrink:0,
+                fontFamily:"Georgia,serif", fontSize:"1.1rem", color:"#fff", fontWeight:700,
+                border:"2px solid rgba(255,255,255,.3)" }}>
+                {featured.initial}
+              </div>
+              <div>
+                <div style={{ fontFamily:"'Trebuchet MS',sans-serif", fontSize:".82rem",
+                  fontWeight:700, color:B.cream }}>{featured.name}</div>
+                <div style={{ fontFamily:"'Trebuchet MS',sans-serif", fontSize:".65rem",
+                  color:"rgba(250,243,230,.45)" }}>{featured.role}</div>
+              </div>
+            </div>
+          </div>
+        </Fade>
+
+        {/* Grid */}
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(300px,1fr))",
           gap:"1.5px", background:"rgba(255,255,255,.15)" }}>
-          {reviews.map((r,i) => (
+          {allReviews.filter(r => r.name !== featured.name).map((r,i) => (
             <Fade key={r.name} delay={.1*i}>
               <div style={{ background:"rgba(255,255,255,.07)", padding:"2.2rem",
                 backdropFilter:"blur(4px)" }}>
