@@ -5,12 +5,12 @@ import { useState, useEffect, useRef } from "react";
    Paleta sóbria, editorial, food-tech premium
 ══════════════════════════════════════════════ */
 export const B = {
-  // Dark UI
-  bg:        "#09090B",
-  surface:   "#111114",
-  surface2:  "#18181C",
-  line:      "rgba(255,255,255,.07)",
-  lineHi:    "rgba(255,255,255,.14)",
+  // Dark UI — marrom quente, não cinza frio
+  bg:        "#160800",
+  surface:   "#1E0D02",
+  surface2:  "#2A1206",
+  line:      "rgba(255,255,255,.08)",
+  lineHi:    "rgba(255,255,255,.15)",
 
   // Text on dark
   text:      "#FAF9F7",
@@ -108,7 +108,7 @@ export const GLOBAL_CSS = `
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
-    background: ${B.bg};
+    background: ${B.cream};
     font-family: ${SYS};
     color: ${B.text};
     overflow-x: hidden;

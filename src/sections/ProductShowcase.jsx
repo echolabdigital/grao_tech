@@ -10,7 +10,7 @@ const ORDERS = [
 export default function ProductShowcase({ segment: s }) {
   return (
     <section style={{
-      background: B.bg, padding: "96px 1.5rem",
+      background: `linear-gradient(160deg, #1C0800, #2A1004)`, padding: "96px 1.5rem",
       position: "relative", overflow: "hidden",
     }}>
       {/* Bg glow */}

@@ -16,9 +16,9 @@ export default function Nav() {
     <nav style={{
       position: "fixed", top: 0, left: 0, right: 0, zIndex: 200,
       height: 60,
-      background:     solid ? "rgba(9,9,11,.92)"   : "transparent",
+      background:     solid ? "rgba(249,245,238,.96)" : "transparent",
       backdropFilter: solid ? "blur(16px) saturate(1.4)" : "none",
-      borderBottom:   solid ? `1px solid ${B.line}` : "none",
+      borderBottom:   solid ? `1px solid ${B.cream2}` : "none",
       transition: "background .35s, border-color .35s",
       display: "flex", alignItems: "center",
     }}>
@@ -27,19 +27,19 @@ export default function Nav() {
         padding: "0 1.5rem",
         display: "flex", alignItems: "center", gap: "2rem",
       }}>
-        <GTLogo variant="light" size={34} />
+        <GTLogo variant={solid ? "light" : "dark"} size={34} />
         <div style={{ flex: 1 }} />
 
         {LINKS.map(([label, href]) => (
           <a key={label} href={href} style={{
             fontFamily: FONTS.sys,
             fontSize: ".78rem", letterSpacing: ".01em",
-            color: B.textMid,
+            color: solid ? B.muted : B.textMid,
             textDecoration: "none",
             transition: "color .15s",
           }}
-            onMouseEnter={e => e.target.style.color = B.text}
-            onMouseLeave={e => e.target.style.color = B.textMid}
+            onMouseEnter={e => e.target.style.color = solid ? B.ink : B.text}
+            onMouseLeave={e => e.target.style.color = solid ? B.muted : B.textMid}
           >
             {label}
           </a>

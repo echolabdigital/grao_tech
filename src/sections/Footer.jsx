@@ -19,8 +19,8 @@ const COLS = [
 export default function Footer() {
   return (
     <footer style={{
-      background: B.bg,
-      borderTop: `1px solid ${B.line}`,
+      background: "#100600",
+      borderTop: "1px solid rgba(255,255,255,.06)",
       padding: "56px 1.5rem 28px",
     }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -32,7 +32,7 @@ export default function Footer() {
         }}>
           {/* Brand */}
           <div>
-            <GTLogo variant="light" size={34} />
+            <GTLogo variant="dark" size={34} />
             <p style={{
               fontFamily: FONTS.sys, fontSize: ".76rem",
               color: B.textLow,

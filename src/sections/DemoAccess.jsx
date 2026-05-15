@@ -17,11 +17,9 @@ export default function DemoAccess({ segment: s }) {
 
   return (
     <section id="demo" style={{
-      background: B.surface,
+      background: `linear-gradient(160deg, #1C0800, #2E1206)`,
       padding: "96px 1.5rem",
       position: "relative", overflow: "hidden",
-      borderTop: `1px solid ${B.line}`,
-      borderBottom: `1px solid ${B.line}`,
     }}>
       {/* Glow */}
       <div style={{
@@ -90,7 +88,7 @@ export default function DemoAccess({ segment: s }) {
           {/* Right — credentials card */}
           <Fade delay={.12}>
             <div style={{
-              background: B.bg,
+              background: "#1C0800",
               border: `1px solid ${s.accent}28`,
               borderRadius: 4,
               overflow: "hidden",

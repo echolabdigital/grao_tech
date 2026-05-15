@@ -1,32 +1,34 @@
-import { useState } from "react";
 import { B, Fade, FONTS } from "../App";
 
 const PLANS = [
   {
-    name: "Starter", price: 297, highlight: false,
-    color: B.surface2,
-    desc: "Para quem quer começar a vender online com o essencial.",
+    name: "Essencial",
+    setup: 1499,
+    monthly: 197,
+    highlight: false,
+    desc: "Site, cardápio e pedidos no ar em até 48 horas.",
     cta: "Começar",
     features: [
       "Site de vendas com sua marca",
       "Cardápio digital com fotos",
+      "Checkout PIX + cartão",
       "Pedidos via WhatsApp",
-      "PIX e cartão integrado",
-      "Painel de gestão",
+      "Painel de gestão completo",
       "Suporte via chat",
     ],
-    off: ["App iOS + Android", "Robô WhatsApp", "Clube de pontos"],
+    off: ["App iOS + Android", "Robô WhatsApp", "Clube de fidelidade"],
   },
   {
-    name: "Profissional", price: 597, highlight: true,
-    color: B.accent,
-    desc: "A plataforma completa para quem quer escalar.",
+    name: "Profissional",
+    setup: 2999,
+    monthly: 397,
+    highlight: true,
+    desc: "Plataforma completa para quem quer escalar e fidelizar.",
     cta: "Quero o Profissional",
     features: [
-      "Tudo do Starter",
+      "Tudo do Essencial",
       "App iOS + Android",
       "Robô WhatsApp 24h",
-      "Integração iFood",
       "Clube de pontos e fidelidade",
       "Gestão de encomendas",
       "Relatórios avançados",
@@ -35,17 +37,19 @@ const PLANS = [
     off: [],
   },
   {
-    name: "Enterprise", price: null, highlight: false,
-    color: B.surface2,
-    desc: "Para redes, indústrias e operações multi-unidade.",
+    name: "Enterprise",
+    setup: null,
+    monthly: null,
+    highlight: false,
+    desc: "Para redes, franquias e operações multi-unidade.",
     cta: "Falar com especialista",
     features: [
       "Tudo do Profissional",
       "Múltiplas unidades",
       "PDV integrado",
-      "Vendas B2B com tabela",
-      "Fila de produção em TV",
-      "API e integrações customizadas",
+      "Vendas B2B",
+      "Painel de produção em TV",
+      "Integrações customizadas",
       "Gerente de conta dedicado",
     ],
     off: [],
@@ -53,13 +57,10 @@ const PLANS = [
 ];
 
 export default function Pricing() {
-  const [anual, setAnual] = useState(false);
-
   return (
     <section id="planos" style={{
-      background: B.bg,
+      background: B.cream,
       padding: "96px 1.5rem",
-      borderTop: `1px solid ${B.line}`,
     }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Fade>
@@ -70,46 +71,17 @@ export default function Pricing() {
             <h2 style={{
               fontFamily: FONTS.serif,
               fontSize: "clamp(2rem, 4vw, 3rem)",
-              color: B.text, fontWeight: 400, marginBottom: "1.4rem",
+              color: B.ink, fontWeight: 400,
             }}>
-              Transparente,{" "}
-              <em style={{ color: B.accent }}>sem surpresas.</em>
+              Investimento único.{" "}
+              <em style={{ color: B.accent }}>Resultado contínuo.</em>
             </h2>
-
-            {/* Toggle anual/mensal */}
-            <div style={{
-              display: "inline-flex", alignItems: "center", gap: ".75rem",
-              background: B.surface,
-              border: `1px solid ${B.line}`,
-              padding: ".35rem .8rem",
+            <p style={{
+              fontFamily: FONTS.sys, fontSize: ".85rem",
+              color: B.muted, marginTop: ".8rem",
             }}>
-              <span style={{
-                fontFamily: FONTS.sys, fontSize: ".7rem",
-                color: anual ? B.textLow : B.text, fontWeight: anual ? 400 : 600,
-                transition: ".2s",
-              }}>Mensal</span>
-              <button onClick={() => setAnual(v => !v)} style={{
-                width: 38, height: 20, borderRadius: 10,
-                background: anual ? B.accent : "rgba(255,255,255,.12)",
-                border: "none", cursor: "pointer",
-                position: "relative", transition: ".25s",
-              }}>
-                <div style={{
-                  position: "absolute", top: 2,
-                  left: anual ? 19 : 2,
-                  width: 16, height: 16, borderRadius: "50%",
-                  background: "#fff", transition: "left .25s",
-                }} />
-              </button>
-              <span style={{
-                fontFamily: FONTS.sys, fontSize: ".7rem",
-                color: anual ? B.text : B.textLow, fontWeight: anual ? 600 : 400,
-                transition: ".2s",
-              }}>
-                Anual{" "}
-                <span style={{ color: B.sage, fontWeight: 700 }}>−20%</span>
-              </span>
-            </div>
+              Setup pago uma vez. Mensalidade para manter, atualizar e crescer.
+            </p>
           </div>
         </Fade>
 
@@ -117,13 +89,13 @@ export default function Pricing() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           gap: "1px",
-          background: B.line,
-          border: `1px solid ${B.line}`,
+          background: B.latte,
+          border: `1px solid ${B.latte}`,
         }}>
           {PLANS.map((p, i) => (
             <Fade key={p.name} delay={.08 * i}>
               <div style={{
-                background: p.highlight ? p.color : B.surface,
+                background: p.highlight ? B.accent : "#fff",
                 padding: "2.4rem 2rem",
                 display: "flex", flexDirection: "column",
                 position: "relative",
@@ -140,46 +112,64 @@ export default function Pricing() {
                   }}>Mais popular</div>
                 )}
 
-                <div style={{ marginBottom: "1.4rem" }}>
-                  <div style={{
-                    fontFamily: FONTS.sys, fontSize: ".65rem",
-                    letterSpacing: ".12em", textTransform: "uppercase",
-                    color: p.highlight ? "rgba(255,255,255,.55)" : B.textLow,
-                    marginBottom: ".4rem",
-                  }}>{p.name}</div>
+                {/* Plan name */}
+                <div style={{
+                  fontFamily: FONTS.sys, fontSize: ".62rem",
+                  letterSpacing: ".14em", textTransform: "uppercase",
+                  color: p.highlight ? "rgba(255,255,255,.6)" : B.muted,
+                  marginBottom: ".5rem",
+                }}>{p.name}</div>
 
-                  <div style={{
-                    fontFamily: FONTS.serif, fontSize: "2.1rem",
-                    fontWeight: 700,
-                    color: p.highlight ? "#fff" : B.text,
-                    lineHeight: 1, display: "flex",
-                    alignItems: "baseline", gap: ".2rem",
-                  }}>
-                    {p.price
-                      ? `R$ ${(anual ? Math.round(p.price * .8) : p.price).toLocaleString("pt-BR")}`
-                      : "Sob consulta"}
-                    {p.price && (
+                {/* Setup price */}
+                <div style={{ marginBottom: ".3rem" }}>
+                  {p.setup ? (
+                    <div style={{
+                      fontFamily: FONTS.serif, fontSize: "2.2rem",
+                      fontWeight: 700, lineHeight: 1,
+                      color: p.highlight ? "#fff" : B.ink,
+                      display: "flex", alignItems: "baseline", gap: ".3rem",
+                    }}>
+                      R$ {p.setup.toLocaleString("pt-BR")}
                       <span style={{
-                        fontFamily: FONTS.sys, fontSize: ".65rem",
-                        color: p.highlight ? "rgba(255,255,255,.4)" : B.textLow,
-                      }}>/mês</span>
-                    )}
-                  </div>
-                  <p style={{
-                    fontFamily: FONTS.sys, fontSize: ".72rem",
-                    color: p.highlight ? "rgba(255,255,255,.55)" : B.textMid,
-                    marginTop: ".4rem", lineHeight: 1.5,
-                  }}>{p.desc}</p>
+                        fontFamily: FONTS.sys, fontSize: ".62rem",
+                        color: p.highlight ? "rgba(255,255,255,.45)" : B.muted,
+                        fontWeight: 400,
+                      }}>setup</span>
+                    </div>
+                  ) : (
+                    <div style={{
+                      fontFamily: FONTS.serif, fontSize: "2rem",
+                      color: p.highlight ? "#fff" : B.ink,
+                    }}>Sob consulta</div>
+                  )}
                 </div>
 
+                {/* Monthly */}
+                {p.monthly && (
+                  <div style={{
+                    fontFamily: FONTS.sys, fontSize: ".75rem",
+                    color: p.highlight ? "rgba(255,255,255,.55)" : B.muted,
+                    marginBottom: ".5rem",
+                  }}>
+                    + R$ {p.monthly.toLocaleString("pt-BR")}/mês
+                  </div>
+                )}
+
+                <p style={{
+                  fontFamily: FONTS.sys, fontSize: ".72rem",
+                  color: p.highlight ? "rgba(255,255,255,.6)" : B.muted,
+                  lineHeight: 1.55, marginBottom: "1.4rem",
+                }}>{p.desc}</p>
+
+                {/* Features */}
                 <ul style={{ listStyle: "none", flex: 1, marginBottom: "1.6rem" }}>
                   {p.features.map(f => (
                     <li key={f} style={{
                       fontFamily: FONTS.sys, fontSize: ".72rem",
-                      color: p.highlight ? "rgba(255,255,255,.8)" : B.textMid,
+                      color: p.highlight ? "rgba(255,255,255,.82)" : B.brown,
                       padding: ".36rem 0",
                       display: "flex", alignItems: "center", gap: ".5rem",
-                      borderBottom: `1px solid ${p.highlight ? "rgba(255,255,255,.08)" : B.line}`,
+                      borderBottom: `1px solid ${p.highlight ? "rgba(255,255,255,.1)" : B.cream2}`,
                     }}>
                       <span style={{ color: p.highlight ? "rgba(255,255,255,.5)" : B.gold, fontSize: ".7rem" }}>✓</span>
                       {f}
@@ -188,10 +178,10 @@ export default function Pricing() {
                   {p.off.map(f => (
                     <li key={f} style={{
                       fontFamily: FONTS.sys, fontSize: ".72rem",
-                      color: "rgba(250,249,247,.18)", textDecoration: "line-through",
+                      color: "rgba(0,0,0,.18)", textDecoration: "line-through",
                       padding: ".36rem 0",
                       display: "flex", alignItems: "center", gap: ".5rem",
-                      borderBottom: `1px solid ${B.line}`,
+                      borderBottom: `1px solid ${B.cream2}`,
                     }}>
                       <span style={{ opacity: .3 }}>✗</span>{f}
                     </li>
@@ -200,9 +190,9 @@ export default function Pricing() {
 
                 <a href="#contato" style={{
                   display: "block", textAlign: "center",
-                  background: p.highlight ? "rgba(255,255,255,.14)" : B.accent,
-                  border: p.highlight ? "1.5px solid rgba(255,255,255,.25)" : "none",
-                  color: "#fff", padding: ".72rem",
+                  background: p.highlight ? "rgba(255,255,255,.16)" : B.accent,
+                  border: p.highlight ? "1.5px solid rgba(255,255,255,.28)" : "none",
+                  color: "#fff", padding: ".75rem",
                   fontFamily: FONTS.sys, fontSize: ".7rem",
                   fontWeight: 600, letterSpacing: ".04em",
                   textDecoration: "none", transition: "opacity .2s",
@@ -214,6 +204,16 @@ export default function Pricing() {
             </Fade>
           ))}
         </div>
+
+        <Fade delay={.2}>
+          <p style={{
+            textAlign: "center", marginTop: "1.8rem",
+            fontFamily: FONTS.sys, fontSize: ".72rem",
+            color: B.muted,
+          }}>
+            Sem fidelidade obrigatória · Suporte em português · No ar em 48h
+          </p>
+        </Fade>
       </div>
     </section>
   );

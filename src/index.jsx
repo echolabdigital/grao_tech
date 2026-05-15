@@ -37,20 +37,12 @@ export default function GraoTech() {
 
 /* ── Proof Strip ─────────────────────────────── */
 function ProofStrip() {
-  const items = [
-    { icon: "🛵", name: "iFood"         },
-    { icon: "📱", name: "WhatsApp"      },
-    { icon: "💳", name: "PIX"           },
-    { icon: "🏧", name: "Stone"         },
-    { icon: "📦", name: "Melhor Envio"  },
-    { icon: "📊", name: "Bling ERP"     },
-    { icon: "🚀", name: "Rappi"         },
-  ];
+  const items = ["iFood", "WhatsApp Business", "PIX", "Stone", "App Store", "Google Play"];
   return (
     <div style={{
-      background: B.surface,
-      borderTop: `1px solid ${B.line}`,
-      borderBottom: `1px solid ${B.line}`,
+      background: "#fff",
+      borderTop: `1px solid ${B.cream2}`,
+      borderBottom: `1px solid ${B.cream2}`,
       padding: ".85rem 1.5rem",
     }}>
       <div style={{
@@ -61,16 +53,13 @@ function ProofStrip() {
         <span style={{
           fontFamily: FONTS.sys, fontSize: ".58rem",
           letterSpacing: ".18em", textTransform: "uppercase",
-          color: B.textLow,
-        }}>Integrado com</span>
+          color: B.muted,
+        }}>Compatível com</span>
         {items.map(p => (
-          <div key={p.name} style={{
-            display: "flex", alignItems: "center", gap: ".38rem",
+          <span key={p} style={{
             fontFamily: FONTS.sys, fontSize: ".72rem",
-            fontWeight: 500, color: B.textMid,
-          }}>
-            <span style={{ fontSize: ".95rem" }}>{p.icon}</span>{p.name}
-          </div>
+            fontWeight: 500, color: B.brown, opacity: .65,
+          }}>{p}</span>
         ))}
       </div>
     </div>
@@ -187,9 +176,8 @@ function IntegrationsHub() {
 
   return (
     <section style={{
-      background: B.bg,
+      background: `linear-gradient(160deg, #1C0800, #2E1206)`,
       padding: "96px 1.5rem",
-      borderTop: `1px solid ${B.line}`,
       position: "relative", overflow: "hidden",
     }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
