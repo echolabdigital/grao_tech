@@ -1,130 +1,124 @@
 import { B } from "./App";
 
-/* ══════════════════════════════════════════════
-   GRÃO TECH — Logo System
-   Mark: coffee-bean shape + circuit trace centre line + node dots
-   Usage:
-     <GTLogo variant="dark" size={48} />   — on light bg
-     <GTLogo variant="light" size={48} />  — on dark bg
-     <GTMark size={40} />                  — icon only (app icon, favicon)
-══════════════════════════════════════════════ */
-export function GTLogo({ variant = "dark", size = 48 }) {
-  const onDark = variant === "dark";
-  const txt    = onDark ? B.white  : B.ink;
-  const sub    = onDark ? "rgba(255,250,240,.42)" : B.muted;
-  const w      = size * 4.6;
-  const ms     = size * 0.72;
-  const bw     = ms * 0.55;
-  const bh     = ms * 0.88;
-  const cx     = ms * 0.5;
-  const cy     = ms * 0.5;
+/*
+  Grão Tech — Logo System v2
 
-  const bean = `
-    M ${cx} ${cy - bh * 0.5}
-    C ${cx + bw * 0.7} ${cy - bh * 0.35},
-      ${cx + bw * 0.7} ${cy + bh * 0.35},
-      ${cx} ${cy + bh * 0.5}
-    C ${cx - bw * 0.7} ${cy + bh * 0.35},
-      ${cx - bw * 0.7} ${cy - bh * 0.35},
-      ${cx} ${cy - bh * 0.5} Z
-  `;
+  Marca: grão de café / trigo estilizado
+  O grão é a metáfora central — padaria (trigo), café (grão),
+  restaurante (ingrediente), adega (semente de uva).
+
+  GTLogo  — wordmark completo
+  GTMark  — símbolo isolado (ícone, favicon)
+*/
+
+export function GTMark({ size = 40, color = B.accent, bg = "transparent" }) {
+  const s = size;
+  const cx = s / 2, cy = s / 2;
+  const rx = s * 0.28, ry = s * 0.44;
 
   return (
-    <svg
-      width={w} height={size}
-      viewBox={`0 0 ${w} ${size}`}
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ display: "block", flexShrink: 0 }}
-    >
-      {/* ── Mark ── */}
-      <g transform={`translate(${(size - ms) * 0.1}, ${(size - ms) * 0.06})`}>
-        <path d={bean} fill={B.terra} />
-        <line
-          x1={cx} y1={cy - bh * 0.32}
-          x2={cx} y2={cy + bh * 0.32}
-          stroke={B.gold} strokeWidth={ms * 0.055} strokeLinecap="round"
-        />
-        {[-0.14, 0, 0.14].map((o, i) => (
-          <circle
-            key={i}
-            cx={cx + (i === 1 ? ms * 0.1 : 0)}
-            cy={cy + bh * o}
-            r={ms * (i === 1 ? 0.065 : 0.048)}
-            fill={B.gold}
-          />
-        ))}
-        <path d={bean} fill="none" stroke="rgba(255,255,255,.15)" strokeWidth={ms * 0.04} />
-      </g>
-
-      {/* ── Wordmark ── */}
-      <text
-        x={ms * 0.9} y={size * 0.55}
-        fontFamily="Georgia,'Times New Roman',serif"
-        fontSize={size * 0.4} fontWeight="700"
-        fill={txt} letterSpacing={size * 0.028}
-      >
-        GRÃO
-      </text>
-
-      {/* Rule */}
-      <rect
-        x={ms * 0.9} y={size * 0.6}
-        width={size * 2.05} height={size * 0.038}
-        fill={B.terra} opacity=".8"
-      />
-
-      {/* TECH */}
-      <text
-        x={ms * 0.9} y={size * 0.83}
-        fontFamily="'Trebuchet MS',sans-serif"
-        fontSize={size * 0.19} fontWeight="700"
-        fill={sub} letterSpacing={size * 0.22}
-      >
-        TECH
-      </text>
-
-      {/* Tagline — only at ≥ 48px */}
-      {size >= 48 && (
-        <text
-          x={ms * 0.9} y={size * 0.96}
-          fontFamily="'Trebuchet MS',sans-serif"
-          fontSize={size * 0.12}
-          fill={onDark ? "rgba(255,250,240,.25)" : "rgba(18,8,0,.28)"}
-          letterSpacing={size * 0.065}
-        >
-          DO GRÃO AO DIGITAL
-        </text>
+    <svg width={s} height={s} viewBox={`0 0 ${s} ${s}`} fill="none">
+      {bg !== "transparent" && (
+        <rect width={s} height={s} rx={s * 0.22} fill={bg} />
       )}
+      {/* Grão externo (halo) */}
+      <ellipse cx={cx} cy={cy} rx={rx + s * 0.05} ry={ry + s * 0.05}
+        fill={color} opacity="0.14" />
+      {/* Grão principal */}
+      <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill={color} />
+      {/* Linha central (sulco do grão) */}
+      <line
+        x1={cx} y1={cy - ry * 0.66}
+        x2={cx} y2={cy + ry * 0.66}
+        stroke="rgba(255,255,255,.55)" strokeWidth={s * 0.044} strokeLinecap="round"
+      />
+      {/* Nó superior */}
+      <circle cx={cx} cy={cy - ry * 0.28} r={s * 0.048} fill="rgba(255,255,255,.7)" />
+      {/* Nó inferior */}
+      <circle cx={cx} cy={cy + ry * 0.28} r={s * 0.038} fill="rgba(255,255,255,.5)" />
     </svg>
   );
 }
 
-/* ── Icon-only mark (app icon, favicon, seal) ── */
-export function GTMark({ size = 40 }) {
-  const ms = size;
-  const cx = ms * 0.5, cy = ms * 0.5;
-  const bw = ms * 0.55, bh = ms * 0.88;
+export function GTLogo({ variant = "light", size = 40 }) {
+  const onLight = variant === "light";
+  const textColor = onLight ? B.ink : B.text;
+  const subColor  = onLight ? B.muted : B.textLow;
+  const markColor = B.accent;
+
+  const markSize = size * 0.9;
+  const gap      = size * 0.55;
+  const totalW   = markSize + gap + size * 3.8;
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-      <path
-        d={`M ${cx} ${cy-bh*.5} C ${cx+bw*.7} ${cy-bh*.35},${cx+bw*.7} ${cy+bh*.35},${cx} ${cy+bh*.5} C ${cx-bw*.7} ${cy+bh*.35},${cx-bw*.7} ${cy-bh*.35},${cx} ${cy-bh*.5} Z`}
-        fill={B.terra}
+    <svg
+      width={totalW} height={size}
+      viewBox={`0 0 ${totalW} ${size}`}
+      fill="none"
+      style={{ display: "block", flexShrink: 0 }}
+    >
+      {/* Mark */}
+      <g transform={`translate(0, ${(size - markSize) / 2})`}>
+        <GTMarkInline size={markSize} color={markColor} />
+      </g>
+
+      {/* GRÃO — serif bold */}
+      <text
+        x={markSize + gap}
+        y={size * 0.58}
+        fontFamily="Georgia, 'Times New Roman', serif"
+        fontSize={size * 0.42}
+        fontWeight="700"
+        fill={textColor}
+        letterSpacing="0.01em"
+      >
+        GRÃO
+      </text>
+
+      {/* Linha divisória */}
+      <rect
+        x={markSize + gap}
+        y={size * 0.63}
+        width={size * 2.1}
+        height={size * 0.032}
+        fill={markColor}
+        opacity="0.7"
+        rx="1"
       />
-      <line
-        x1={cx} y1={cy - bh * .32}
-        x2={cx} y2={cy + bh * .32}
-        stroke={B.gold} strokeWidth={ms * .055} strokeLinecap="round"
-      />
-      {[-0.14, 0, 0.14].map((o, i) => (
-        <circle
-          key={i}
-          cx={cx + (i === 1 ? ms * .1 : 0)}
-          cy={cy + bh * o}
-          r={ms * (i === 1 ? .065 : .048)}
-          fill={B.gold}
-        />
-      ))}
+
+      {/* TECH — sans, espaçado */}
+      <text
+        x={markSize + gap}
+        y={size * 0.85}
+        fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        fontSize={size * 0.2}
+        fontWeight="500"
+        fill={subColor}
+        letterSpacing={size * 0.195}
+      >
+        TECH
+      </text>
     </svg>
+  );
+}
+
+/* Versão inline usada dentro de GTLogo (sem nested SVG) */
+function GTMarkInline({ size, color }) {
+  const s = size;
+  const cx = s / 2, cy = s / 2;
+  const rx = s * 0.28, ry = s * 0.44;
+  return (
+    <g>
+      <ellipse cx={cx} cy={cy} rx={rx + s * 0.05} ry={ry + s * 0.05}
+        fill={color} opacity="0.14" />
+      <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill={color} />
+      <line
+        x1={cx} y1={cy - ry * 0.66}
+        x2={cx} y2={cy + ry * 0.66}
+        stroke="rgba(255,255,255,.55)" strokeWidth={s * 0.044} strokeLinecap="round"
+      />
+      <circle cx={cx} cy={cy - ry * 0.28} r={s * 0.048} fill="rgba(255,255,255,.7)" />
+      <circle cx={cx} cy={cy + ry * 0.28} r={s * 0.038} fill="rgba(255,255,255,.5)" />
+    </g>
   );
 }

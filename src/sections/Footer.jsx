@@ -1,37 +1,42 @@
-import { B } from "../App";
+import { B, FONTS } from "../App";
 import { GTLogo } from "../Logo";
 
 const COLS = [
   {
     title: "Soluções",
-    links: ["Site + App", "Robô WhatsApp", "Encomendas", "Clube de Pontos", "Produção"],
+    links: ["Site + App", "Robô WhatsApp", "Encomendas", "Clube de Pontos", "Painel de Produção"],
   },
   {
     title: "Empresa",
-    links: ["Quem somos", "Blog", "Cases", "Parceiros", "Carreiras"],
+    links: ["Quem somos", "Cases", "Blog", "Parceiros", "Carreiras"],
   },
   {
     title: "Suporte",
-    links: ["Central de ajuda", "Status", "Contato", "API Docs", "WhatsApp"],
+    links: ["Central de ajuda", "Documentação", "Status", "Contato", "WhatsApp"],
   },
 ];
 
 export default function Footer() {
   return (
-    <footer style={{ background: B.ink, padding: "60px 1.5rem 28px" }}>
-      <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+    <footer style={{
+      background: B.bg,
+      borderTop: `1px solid ${B.line}`,
+      padding: "56px 1.5rem 28px",
+    }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div style={{
           display: "grid",
           gridTemplateColumns: "2fr 1fr 1fr 1fr",
           gap: "3rem", marginBottom: "3rem",
+          flexWrap: "wrap",
         }}>
-          {/* Brand col */}
+          {/* Brand */}
           <div>
-            <GTLogo variant="dark" size={38} />
+            <GTLogo variant="light" size={34} />
             <p style={{
-              fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".76rem",
-              color: "rgba(250,243,230,.35)",
-              lineHeight: 1.8, marginTop: ".9rem", maxWidth: 270,
+              fontFamily: FONTS.sys, fontSize: ".76rem",
+              color: B.textLow,
+              lineHeight: 1.8, marginTop: "1rem", maxWidth: 260,
             }}>
               Tecnologia feita para quem acorda cedo e trabalha com amor.
               Do grão ao digital.
@@ -42,19 +47,20 @@ export default function Footer() {
           {COLS.map(col => (
             <div key={col.title}>
               <div style={{
-                fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".6rem",
+                fontFamily: FONTS.sys, fontSize: ".58rem",
                 letterSpacing: ".16em", textTransform: "uppercase",
-                color: "rgba(250,243,230,.3)", marginBottom: ".8rem",
+                color: B.textLow, marginBottom: ".9rem",
               }}>{col.title}</div>
               {col.links.map(l => (
                 <a key={l} href="#" style={{
                   display: "block",
-                  fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".76rem",
-                  color: "rgba(250,243,230,.38)",
-                  textDecoration: "none", padding: ".25rem 0", transition: ".15s",
+                  fontFamily: FONTS.sys, fontSize: ".76rem",
+                  color: B.textLow,
+                  textDecoration: "none", padding: ".24rem 0",
+                  transition: "color .15s",
                 }}
-                  onMouseEnter={e => e.target.style.color = B.wheat}
-                  onMouseLeave={e => e.target.style.color = "rgba(250,243,230,.38)"}
+                  onMouseEnter={e => e.target.style.color = B.text}
+                  onMouseLeave={e => e.target.style.color = B.textLow}
                 >{l}</a>
               ))}
             </div>
@@ -62,22 +68,22 @@ export default function Footer() {
         </div>
 
         <div style={{
-          borderTop: "1px solid rgba(255,255,255,.07)",
+          borderTop: `1px solid ${B.line}`,
           paddingTop: "1.4rem",
           display: "flex", justifyContent: "space-between",
           flexWrap: "wrap", gap: "1rem",
         }}>
           <span style={{
-            fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".62rem",
-            color: "rgba(250,243,230,.2)",
+            fontFamily: FONTS.sys, fontSize: ".62rem",
+            color: B.textLow,
           }}>
-            © 2025 Grão Tech · by NewtonIA
+            © 2026 Grão Tech · Florianópolis, SC
           </span>
           <span style={{
-            fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".62rem",
-            color: "rgba(250,243,230,.2)",
+            fontFamily: FONTS.sys, fontSize: ".62rem",
+            color: B.textLow,
           }}>
-            graotech.com.br · Florianópolis, SC
+            graotech.com.br
           </span>
         </div>
       </div>

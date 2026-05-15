@@ -1,42 +1,48 @@
 import { useState } from "react";
-import { B, Fade } from "../App";
+import { B, Fade, FONTS } from "../App";
 
-export const SOLUTIONS = [
+const SOLUTIONS = [
   {
-    icon: "🌐", tag: "canal direto", title: "Site + App de Vendas",
-    color: B.terra,
-    desc: "Cardápio online, checkout próprio com PIX. Zero taxa de marketplace.",
-    highlights: ["Cardápio com fotos", "PIX e cartão integrado", "Push notifications"],
+    icon: "🌐", tag: "canal direto",
+    title: "Site + App de Vendas",
+    color: "#E8622A",
+    desc: "Cardápio online com checkout próprio. PIX, cartão e boleto integrados. Zero comissão de marketplace.",
+    items: ["Cardápio com fotos e variações", "PIX e cartão integrado", "Push notifications para clientes"],
   },
   {
-    icon: "🤖", tag: "automação", title: "Robô WhatsApp",
+    icon: "🤖", tag: "automação",
+    title: "Robô WhatsApp",
     color: "#128C7E",
-    desc: "Atendimento e pedidos automáticos 24h. Envie promoções e campanhas.",
-    highlights: ["Fluxo de pedidos", "Campanhas direcionadas", "Atendimento 24/7"],
+    desc: "Fluxo de pedidos automático 24h. Envio de campanhas e promoções para sua base de clientes.",
+    items: ["Atendimento e pedidos 24/7", "Campanhas segmentadas", "Integração com PDV"],
   },
   {
-    icon: "🎂", tag: "zero erro", title: "Gestão de Encomendas",
-    color: B.brown,
-    desc: "Receba encomendas pagas com antecedência, 24h, mesmo com a loja fechada.",
-    highlights: ["Calendário de entregas", "Pagamento antecipado", "Alerta de produção"],
+    icon: "📅", tag: "zero erro",
+    title: "Gestão de Encomendas",
+    color: "#2C1206",
+    desc: "Receba encomendas pagas com antecedência, qualquer hora — mesmo com a loja fechada.",
+    items: ["Calendário de produção", "Pagamento antecipado online", "Alerta automático de entrega"],
   },
   {
-    icon: "⭐", tag: "fidelização", title: "Clube de Pontos",
-    color: B.caramel,
-    desc: "A cada compra, o cliente acumula pontos e troca por produtos. Sem cartãozinho.",
-    highlights: ["Régua de comunicação", "Ofertas personalizadas", "Gamificação"],
+    icon: "⭐", tag: "retenção",
+    title: "Clube de Fidelidade",
+    color: "#D4851A",
+    desc: "A cada compra o cliente acumula pontos e troca por produtos. Sem cartãozinho físico.",
+    items: ["Pontuação automática", "Ofertas personalizadas", "Régua de comunicação"],
   },
   {
-    icon: "🏢", tag: "B2B", title: "Vendas para Empresas",
-    color: B.sage,
-    desc: "Forneça para restaurantes, hotéis e empresas com pedidos recorrentes.",
-    highlights: ["Tabela B2B", "Pedidos recorrentes", "Relatório de carteira"],
+    icon: "🏢", tag: "B2B",
+    title: "Vendas para Empresas",
+    color: "#1B7A3E",
+    desc: "Forneça para restaurantes, hotéis e empresas com tabela de preço e pedidos recorrentes.",
+    items: ["Tabela de preço B2B", "Pedidos recorrentes", "Relatório de carteira"],
   },
   {
-    icon: "📊", tag: "eficiência", title: "Gestão de Produção",
+    icon: "📊", tag: "operação",
+    title: "Painel de Produção",
     color: "#1A4D6B",
-    desc: "Todos os pedidos num único painel. Nunca mais esqueça nada.",
-    highlights: ["Fila em TV", "Impressão de etiquetas", "Controle de estoque"],
+    desc: "Todos os pedidos num painel único. Fila de produção em TV. Nunca mais esqueça nada.",
+    items: ["Fila em TV ou tablet", "Impressão de etiquetas", "Controle de estoque"],
   },
 ];
 
@@ -44,35 +50,34 @@ export default function Solutions() {
   const [hov, setHov] = useState(null);
 
   return (
-    <section id="solucoes" style={{ background: B.white, padding: "100px 1.5rem" }}>
-      <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+    <section id="solucoes" style={{ background: "#fff", padding: "96px 1.5rem" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+
         <Fade>
           <div style={{
             display: "flex", justifyContent: "space-between",
-            alignItems: "flex-end", marginBottom: "4rem",
+            alignItems: "flex-end", marginBottom: "3.5rem",
             flexWrap: "wrap", gap: "1rem",
           }}>
             <div>
-              <span style={{
-                fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".6rem",
-                letterSpacing: ".2em", textTransform: "uppercase",
-                color: B.terra, display: "block", marginBottom: ".6rem",
-              }}>Soluções</span>
+              <span className="label" style={{ color: B.accent, display: "block", marginBottom: ".7rem" }}>
+                soluções
+              </span>
               <h2 style={{
-                fontFamily: "Georgia,serif",
-                fontSize: "clamp(2rem,4vw,3rem)",
-                color: B.ink, fontWeight: 400, lineHeight: 1.1,
+                fontFamily: FONTS.serif,
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+                color: B.ink, fontWeight: 400, lineHeight: 1.08,
               }}>
                 Uma plataforma,{" "}
-                <em style={{ color: B.terra }}>todos os canais.</em>
+                <em style={{ color: B.accent }}>todos os canais.</em>
               </h2>
             </div>
             <p style={{
-              fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".85rem",
-              color: B.muted, lineHeight: 1.75, maxWidth: 340,
+              fontFamily: FONTS.sys, fontSize: ".86rem",
+              color: B.muted, lineHeight: 1.75, maxWidth: 360,
             }}>
-              Cada solução resolve um desafio real.
-              Use o que precisar, quando precisar.
+              Cada módulo resolve um problema real.
+              Ative o que precisar, quando precisar.
             </p>
           </div>
         </Fade>
@@ -80,7 +85,9 @@ export default function Solutions() {
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-          background: B.latte, gap: "1.5px", border: `1.5px solid ${B.latte}`,
+          gap: "1px",
+          background: B.cream2,
+          outline: `1px solid ${B.cream2}`,
         }}>
           {SOLUTIONS.map((s, i) => (
             <Fade key={s.title} delay={.05 * i}>
@@ -88,51 +95,55 @@ export default function Solutions() {
                 onMouseEnter={() => setHov(i)}
                 onMouseLeave={() => setHov(null)}
                 style={{
-                  background: hov === i ? s.color : B.white,
-                  padding: "2.2rem 2rem",
-                  transition: "background .3s",
+                  background: hov === i ? s.color : "#fff",
+                  padding: "2.4rem 2.2rem",
+                  transition: "background .28s",
                   cursor: "default",
                 }}
               >
-                {/* tag row */}
                 <div style={{
                   display: "flex", alignItems: "center",
-                  gap: ".7rem", marginBottom: ".9rem",
+                  gap: ".65rem", marginBottom: "1rem",
                 }}>
-                  <span style={{ fontSize: "1.7rem" }}>{s.icon}</span>
+                  <span style={{ fontSize: "1.6rem" }}>{s.icon}</span>
                   <span style={{
-                    fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".56rem",
-                    letterSpacing: ".15em", textTransform: "uppercase",
-                    background: hov === i ? "rgba(255,255,255,.18)" : B.cream2,
-                    color:      hov === i ? "#fff" : B.muted,
-                    padding: ".18rem .55rem", transition: ".3s",
+                    fontFamily: FONTS.sys, fontSize: ".58rem",
+                    letterSpacing: ".14em", textTransform: "uppercase",
+                    background: hov === i ? "rgba(255,255,255,.18)" : B.cream,
+                    color: hov === i ? "#fff" : B.muted,
+                    padding: ".18rem .55rem", transition: ".28s",
                   }}>{s.tag}</span>
                 </div>
 
                 <h3 style={{
-                  fontFamily: "Georgia,serif", fontSize: "1.2rem",
+                  fontFamily: FONTS.serif, fontSize: "1.15rem",
                   color: hov === i ? "#fff" : B.ink,
-                  fontWeight: 700, marginBottom: ".6rem", transition: ".3s",
+                  fontWeight: 700, marginBottom: ".65rem",
+                  transition: ".28s",
                 }}>{s.title}</h3>
 
                 <p style={{
-                  fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".78rem",
-                  color: hov === i ? "rgba(255,255,255,.75)" : B.muted,
-                  lineHeight: 1.75, marginBottom: "1.1rem", transition: ".3s",
+                  fontFamily: FONTS.sys, fontSize: ".79rem",
+                  color: hov === i ? "rgba(255,255,255,.72)" : B.muted,
+                  lineHeight: 1.75, marginBottom: "1.1rem",
+                  transition: ".28s",
                 }}>{s.desc}</p>
 
                 <ul style={{ listStyle: "none" }}>
-                  {s.highlights.map(h => (
-                    <li key={h} style={{
-                      fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".7rem",
-                      color: hov === i ? "rgba(255,255,255,.7)" : B.brown,
-                      padding: ".2rem 0",
+                  {s.items.map(item => (
+                    <li key={item} style={{
+                      fontFamily: FONTS.sys, fontSize: ".72rem",
+                      color: hov === i ? "rgba(255,255,255,.68)" : B.brown,
+                      padding: ".22rem 0",
                       display: "flex", alignItems: "center", gap: ".5rem",
-                      borderBottom: `1px solid ${hov === i ? "rgba(255,255,255,.12)" : B.cream2}`,
-                      transition: ".3s",
+                      borderBottom: `1px solid ${hov === i ? "rgba(255,255,255,.1)" : B.cream2}`,
+                      transition: ".28s",
                     }}>
-                      <span style={{ color: hov === i ? "rgba(255,255,255,.55)" : B.gold }}>✦</span>
-                      {h}
+                      <span style={{
+                        color: hov === i ? "rgba(255,255,255,.45)" : B.gold,
+                        fontSize: ".65rem",
+                      }}>✦</span>
+                      {item}
                     </li>
                   ))}
                 </ul>

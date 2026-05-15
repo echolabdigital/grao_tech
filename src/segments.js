@@ -1,146 +1,183 @@
+/*
+  Grão Tech — Dados por segmento
+  Copy e paleta pensados por vertical:
+  cada dono de negócio deve se sentir visto.
+*/
+
 export const SEGMENTS = [
   {
     id: "padaria",
     icon: "🍞",
     label: "Padaria",
-    accent: "#B8421A",
-    glow: "rgba(184,66,26,.28)",
-    glowAlt: "rgba(184,66,26,.10)",
-    headline: ["Sua padaria no digital,", "sem abrir mão", "do que é seu."],
-    sub: "Site e app próprios, robô no WhatsApp, gestão de encomendas e clube de fidelidade — tudo integrado, tudo com a sua marca.",
-    cta: "Quero meu sistema →",
-    ctaSecondary: "Ver demonstração",
-    channels: ["iFood", "WhatsApp", "App Próprio", "PIX", "PDV"],
+
+    // Cores
+    accent:    "#E8622A",
+    accentDim: "rgba(232,98,42,.18)",
+    accentGlow:"rgba(232,98,42,.08)",
+
+    // Hero
+    headline:  ["Pare de pagar taxa", "pra quem não", "assa nada."],
+    accentWord: 1,
+    sub: "App e site com sua marca, encomendas pagas online, robô no WhatsApp e clube de fidelidade. Os seus clientes ficam com você — não com o marketplace.",
+    cta:       "Quero meu sistema",
+    ctaDemo:   "Ver demonstração",
+    channels:  ["App Próprio", "iFood", "WhatsApp", "PIX", "Encomendas"],
+    stat:      { val: "+38%", label: "em vendas diretas", desc: "nos primeiros 60 dias" },
+
+    // Dores
     pains: [
       {
-        icon: "💸",
-        title: "30% de taxa no iFood todo mês",
-        desc: "Você trabalha, eles lucram. Cada pedido pelo marketplace custa quase um terço da sua margem. Quem paga essa conta é você.",
+        num: "01",
+        title: "iFood leva até 30% do que você assa.",
+        body: "Comissão, taxa de entrega subsidiada, desconto obrigatório. Cada pedido pelo marketplace custa quase um terço da sua margem. Em vendas diretas, esse dinheiro é todo seu.",
       },
       {
-        icon: "📋",
-        title: "Encomendas perdidas e sem controle",
-        desc: "Anotação no papel, mensagem no WhatsApp pessoal, promessa verbal — e na sexta-feira a bolo não está feito. Erros custam clientes.",
+        num: "02",
+        title: "Encomenda no papel é encomenda perdida.",
+        body: "Anotação no balcão, mensagem no WhatsApp pessoal, promessa verbal. Na sexta-feira o bolo não está feito e o cliente não volta. Uma plataforma organiza tudo com pagamento antecipado.",
       },
       {
-        icon: "😶",
-        title: "Cliente fiel sem nenhuma fidelização",
-        desc: "Aquela cliente que compra toda manhã não tem pontos, não recebe oferta, e amanhã pode virar cliente do concorrente sem que você saiba.",
+        num: "03",
+        title: "Seu cliente mais fiel não tem benefício nenhum.",
+        body: "Ele compra toda manhã há dois anos, mas não acumula pontos, não recebe oferta exclusiva e não tem motivo para não experimentar o concorrente que abriu semana passada.",
       },
     ],
+
+    // Depoimento
     testimonial: {
+      text: "Em dois meses do app próprio, as vendas diretas subiram 38%. Paramos de pagar comissão no que era pedido via WhatsApp. O dinheiro que ficava no iFood agora fica com a gente.",
       name: "Carlos Menezes",
       role: "Padaria Dom Trigo · Florianópolis, SC",
-      text: "Em 2 meses do app, as vendas diretas subiram 38%. Paramos de pagar taxa pro iFood no que era pedido via WhatsApp.",
-      initial: "C",
+      init: "C",
     },
   },
+
   {
     id: "cafe",
     icon: "☕",
     label: "Café",
-    accent: "#7C4A1E",
-    glow: "rgba(124,74,30,.30)",
-    glowAlt: "rgba(124,74,30,.10)",
-    headline: ["Do balcão ao delivery,", "sem perder", "a alma do seu café."],
-    sub: "Cardápio digital com QR code, assinatura de café, pedidos via WhatsApp e painel de produção na tela — sem tablet de terceiro, sem taxa.",
-    cta: "Digitalizar meu café →",
-    ctaSecondary: "Ver demonstração",
-    channels: ["WhatsApp", "QR Code", "App Próprio", "PIX", "Assinatura"],
+
+    accent:    "#7C4220",
+    accentDim: "rgba(124,66,32,.22)",
+    accentGlow:"rgba(124,66,32,.09)",
+
+    headline:  ["Seu café tem alma.", "Seu sistema de vendas", "deveria ter também."],
+    accentWord: 0,
+    sub: "QR code na mesa, assinatura de café, pedidos pelo WhatsApp e painel de produção na tela — sem tablet de terceiro, sem comissão de ninguém.",
+    cta:       "Digitalizar meu café",
+    ctaDemo:   "Ver demonstração",
+    channels:  ["QR Code", "WhatsApp", "Assinatura", "App Próprio", "PIX"],
+    stat:      { val: "+22%", label: "no ticket médio", desc: "com pedido pelo QR code" },
+
     pains: [
       {
-        icon: "⌚",
-        title: "Fila no balcão e cliente perdido",
-        desc: "Nos horários de pico, o cliente vai embora antes de pedir. Sem pedido antecipado pelo app ou WhatsApp, você perde venda toda manhã.",
+        num: "01",
+        title: "Fila no balcão às 8h é cliente perdido.",
+        body: "No pico da manhã, quem não quer esperar vai embora. Com pedido pelo WhatsApp ou QR code na mesa, o cliente pede antes de sentar — você produz, ele chega, retira.",
       },
       {
-        icon: "🔗",
-        title: "Depende do app de terceiro para tudo",
-        desc: "iFood, Rappi, Méliuz — cada um cobra sua fatia e nenhum te dá os dados do cliente. Você nunca sabe quem compra, quanto gasta e quando volta.",
+        num: "02",
+        title: "O iFood sabe quem é seu cliente. Você, não.",
+        body: "E-mail, histórico de consumo, frequência de visita — tudo fica no banco de dados da plataforma. Você nunca tem esses dados para fazer campanhas de reativação ou clube de fidelidade.",
       },
       {
-        icon: "🎯",
-        title: "Fidelidade é boca a boca e nada mais",
-        desc: "Você confia no cafezinho gostoso. Mas sem clube de pontos, sem push notification e sem campanha automática, o concorrente vai roubar seu cliente com um cupom.",
+        num: "03",
+        title: "Fidelidade é cafezinho bom e nada mais.",
+        body: "Sem clube de pontos, sem push notification, sem campanha de aniversário, qualquer concorrente que abrir com um cupom de desconto vai roubar metade da sua manhã.",
       },
     ],
+
     testimonial: {
+      text: "O QR code na mesa aumentou nosso ticket médio em 22%. O cliente pede sem precisar chamar, acumula pontos e a fila no balcão caiu pela metade. É outra operação.",
       name: "Priya Mendonça",
       role: "Café Grão Nobre · Belo Horizonte, MG",
-      text: "O QR Code na mesa aumentou o ticket médio em 22%. O cliente pede sem chamar garçom e ainda acumula pontos. A fila do balcão caiu pela metade.",
-      initial: "P",
+      init: "P",
     },
   },
+
   {
     id: "restaurante",
     icon: "🍽️",
     label: "Restaurante",
-    accent: "#1A5C3A",
-    glow: "rgba(26,92,58,.28)",
-    glowAlt: "rgba(26,92,58,.10)",
-    headline: ["Delivery próprio, casa cheia,", "menos taxa", "e mais lucro."],
-    sub: "App de delivery com sua marca, reservas pelo WhatsApp, cardápio de encomendas e programa de fidelidade — tudo no seu controle, sem intermediário.",
-    cta: "Quero delivery próprio →",
-    ctaSecondary: "Ver demonstração",
-    channels: ["iFood", "App Próprio", "WhatsApp", "PIX", "Reservas"],
+
+    accent:    "#1B7A3E",
+    accentDim: "rgba(27,122,62,.20)",
+    accentGlow:"rgba(27,122,62,.08)",
+
+    headline:  ["Menos 27% de taxa.", "Mais margem para", "quem cozinha de verdade."],
+    accentWord: 0,
+    sub: "App de delivery com sua marca, reservas pelo WhatsApp, cardápio digital e programa de fidelidade — sem intermediário entre você e seu cliente.",
+    cta:       "Quero delivery próprio",
+    ctaDemo:   "Ver demonstração",
+    channels:  ["App Próprio", "iFood", "Reservas", "WhatsApp", "PIX"],
+    stat:      { val: "−27%", label: "em comissão paga", desc: "migrando para canal direto" },
+
     pains: [
       {
-        icon: "📉",
-        title: "iFood e Rappi comem sua margem",
-        desc: "Entre comissão, taxa de entregador e promoção obrigatória, sobra menos de 60% do preço do prato. No seu próprio app, você fica com quase tudo.",
+        num: "01",
+        title: "iFood e Rappi levam até 30% do prato.",
+        body: "Comissão, frete subsidiado, listing pago, desconto obrigatório em campanhas. Depois de tudo isso, o restaurante que aparece primeiro na busca às vezes opera no prejuízo sem saber.",
       },
       {
-        icon: "📵",
-        title: "Reservas por ligação e WhatsApp pessoal",
-        desc: "Mesa pedida pelo WhatsApp da garçonete, confirmação verbal, sem histórico. No fim do mês você não sabe quantas mesas reservaram nem quais cancelaram.",
+        num: "02",
+        title: "Reserva por ligação, no-show sem aviso.",
+        body: "Sem sistema de reservas, você não manda lembrete, não cobra antecipado, não tem histórico. Mesa reservada às 20h que não aparece é prejuízo direto sem nenhum dado para evitar da próxima vez.",
       },
       {
-        icon: "📦",
-        title: "Zero dados sobre quem é seu cliente",
-        desc: "O iFood sabe quem compra no seu restaurante. Você, não. Sem e-mail, sem CPF, sem histórico de pedido — impossível fazer campanha de reativação ou programa de fidelidade.",
+        num: "03",
+        title: "O cliente é do marketplace. Você é o fornecedor.",
+        body: "Quando ele pede pelo iFood, o CPF e o e-mail vão para o iFood. Você faz o prato, eles ficam com o relacionamento. Sem os dados do cliente, você não existe fora da plataforma.",
       },
     ],
+
     testimonial: {
+      text: "Em seis meses, saímos de 80% dos pedidos pelo iFood para 45%. O ticket do app próprio é 18% maior e a margem no delivery direto dobrou. Foi a melhor decisão do ano.",
       name: "Roberto Takahashi",
       role: "Restaurante Prato Cheio · São Paulo, SP",
-      text: "Saímos de 80% dos pedidos pelo iFood para 45% em seis meses. O ticket do app próprio é 18% maior e a margem dobrou no delivery direto.",
-      initial: "R",
+      init: "R",
     },
   },
+
   {
     id: "adega",
     icon: "🍷",
     label: "Adega",
-    accent: "#6B1A4A",
-    glow: "rgba(107,26,74,.30)",
-    glowAlt: "rgba(107,26,74,.10)",
-    headline: ["Sua adega, seu clube,", "sua margem —", "nada de marketplace."],
-    sub: "Clube de assinantes, loja online de vinhos e destilados, WhatsApp para pedidos e eventos especiais — com a identidade da sua adega, sem comissão de terceiro.",
-    cta: "Montar minha adega digital →",
-    ctaSecondary: "Ver demonstração",
-    channels: ["Loja Online", "WhatsApp", "Clube", "PIX", "Eventos"],
+
+    accent:    "#821845",
+    accentDim: "rgba(130,24,69,.20)",
+    accentGlow:"rgba(130,24,69,.08)",
+
+    headline:  ["Sua adega é destino.", "Trate seus clientes", "como membros."],
+    accentWord: 0,
+    sub: "Clube de assinantes com curadoria mensal, loja online, pedidos especiais pelo WhatsApp e gestão de eventos — tudo com a identidade da sua adega.",
+    cta:       "Montar minha adega digital",
+    ctaDemo:   "Ver demonstração",
+    channels:  ["Clube", "Loja Online", "WhatsApp", "Eventos", "PIX"],
+    stat:      { val: "140", label: "assinantes em 4 meses", desc: "com clube estruturado" },
+
     pains: [
       {
-        icon: "🏷️",
-        title: "Marketplace destrói seu preço e marca",
-        desc: "Aparecer no mesmo lugar que concorrente de baixo custo força desconto. Quem compra vinho num app de supermercado não é o seu cliente — você está no lugar errado.",
+        num: "01",
+        title: "Marketplace de vinho destrói preço e marca.",
+        body: "Aparecer na mesma prateleira digital de importadora de baixo custo força desconto de sobrevivência. Cliente que compra experiência não está no lugar onde tudo compete por preço.",
       },
       {
-        icon: "📭",
-        title: "Sem clube de assinantes estruturado",
-        desc: "Muita adega tenta clube por planilha e WhatsApp manual. Sem plataforma própria, as curadoria, cobranças recorrentes e logística viram um pesadelo todo mês.",
+        num: "02",
+        title: "Clube em planilha é pesadelo todo mês.",
+        body: "Sem plataforma, curadoria, cobrança recorrente e logística de cada assinante viram horas de trabalho manual. Você perde mais tempo administrando do que escolhendo os vinhos.",
       },
       {
-        icon: "🎪",
-        title: "Evento cheio, mas nenhum dado capturado",
-        desc: "Você faz degustação, jazz e jantar harmonizado — a casa lota. Mas sem cadastro, sem check-in digital, você não sabe quem foi e não pode convidar de novo.",
+        num: "03",
+        title: "Evento lotado, nenhum dado capturado.",
+        body: "Degustação, jantar harmonizado, noite de espumantes — casa cheia. Mas sem check-in digital, amanhã você não sabe quem foi, não tem o e-mail de ninguém e não pode convidar de volta.",
       },
     ],
+
     testimonial: {
+      text: "O clube saiu do zero para 140 assinantes em quatro meses. Receita recorrente, sem marketplace, sem comissão. Agora sei o nome, o gosto e o histórico de cada cliente.",
       name: "Ana Luísa Ferreira",
       role: "Adega Terroir · Curitiba, PR",
-      text: "O clube de assinantes saiu do zero para 140 clientes em 4 meses com a plataforma. Receita recorrente, sem marketplace, sem comissão. É outra vida.",
-      initial: "A",
+      init: "A",
     },
   },
 ];

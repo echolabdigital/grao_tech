@@ -1,22 +1,8 @@
 import { useState } from "react";
-import { B, Fade } from "../App";
-
-const LABEL = {
-  display: "block",
-  fontFamily: "'Trebuchet MS',sans-serif",
-  fontSize: ".6rem", letterSpacing: ".12em",
-  textTransform: "uppercase", color: B.muted, marginBottom: ".32rem",
-};
-
-const INPUT_BASE = {
-  width: "100%", padding: ".58rem .8rem",
-  border: `1px solid ${B.latte}`, background: "#fff",
-  fontFamily: "'Trebuchet MS',sans-serif",
-  fontSize: ".86rem", color: B.ink, outline: "none", transition: "border .2s",
-};
+import { B, Fade, FONTS } from "../App";
 
 export default function Contact() {
-  const [f, setF]     = useState({ name: "", phone: "", city: "", seg: "padaria" });
+  const [f, setF]       = useState({ name: "", phone: "", city: "", seg: "padaria" });
   const [sent, setSent] = useState(false);
 
   function submit(e) {
@@ -31,124 +17,161 @@ export default function Contact() {
     setSent(true);
   }
 
+  const inputStyle = {
+    width: "100%", padding: ".62rem .85rem",
+    border: `1px solid ${B.line}`,
+    background: B.bg,
+    fontFamily: FONTS.sys, fontSize: ".86rem",
+    color: B.text, outline: "none",
+    transition: "border-color .18s",
+  };
+
   return (
     <section id="contato" style={{
-      background: B.white, padding: "100px 1.5rem",
-      borderTop: `1px solid ${B.cream2}`,
+      background: B.cream,
+      padding: "96px 1.5rem",
     }}>
-      <div style={{ maxWidth: 940, margin: "0 auto" }}>
+      <div style={{ maxWidth: 1000, margin: "0 auto" }}>
         <div style={{
-          display: "grid", gridTemplateColumns: "1fr 1.05fr",
-          gap: "5rem", alignItems: "center",
+          display: "grid",
+          gridTemplateColumns: "1fr 1.1fr",
+          gap: "5rem", alignItems: "start",
         }}>
-          {/* Left col */}
+
+          {/* Left */}
           <Fade>
-            <span style={{
-              fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".6rem",
-              letterSpacing: ".2em", textTransform: "uppercase",
-              color: B.terra, display: "block", marginBottom: ".6rem",
-            }}>Contato</span>
-
+            <span className="label" style={{ color: B.accent, display: "block", marginBottom: ".7rem" }}>
+              contato
+            </span>
             <h2 style={{
-              fontFamily: "Georgia,serif",
-              fontSize: "clamp(1.8rem,3.5vw,2.8rem)",
-              color: B.ink, fontWeight: 400, lineHeight: 1.15, marginBottom: "1rem",
+              fontFamily: FONTS.serif,
+              fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+              color: B.ink, fontWeight: 400, lineHeight: 1.1,
+              marginBottom: "1rem",
             }}>
-              Pronto para o próximo nível?
+              Pronto para parar de pagar taxa?
             </h2>
-
             <p style={{
-              fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".86rem",
-              color: B.muted, lineHeight: 1.8, marginBottom: "1.8rem",
+              fontFamily: FONTS.sys, fontSize: ".86rem",
+              color: B.muted, lineHeight: 1.8, marginBottom: "2rem",
             }}>
-              Demo gratuita e sem compromisso. Implementamos em 48h.
+              Demo gratuita, sem compromisso. A gente entende o seu negócio antes de mostrar qualquer proposta.
             </p>
 
             {[
-              { icon: "⚡", text: "Demo gratuita em 24h" },
-              { icon: "🚀", text: "No ar em 48 horas" },
-              { icon: "🔒", text: "Sem fidelidade obrigatória" },
-              { icon: "🛠️", text: "Suporte em português" },
-            ].map(it => (
-              <div key={it.text} style={{
-                display: "flex", alignItems: "center", gap: ".8rem",
-                fontFamily: "'Trebuchet MS',sans-serif",
-                fontSize: ".78rem", color: B.brown, marginBottom: ".6rem",
+              ["Demo gratuita em 24h",      "●"],
+              ["No ar em menos de 48 horas","●"],
+              ["Sem fidelidade obrigatória", "●"],
+              ["Suporte em português",       "●"],
+            ].map(([text]) => (
+              <div key={text} style={{
+                display: "flex", alignItems: "center", gap: ".75rem",
+                fontFamily: FONTS.sys, fontSize: ".8rem",
+                color: B.brown, marginBottom: ".55rem",
               }}>
-                <span>{it.icon}</span>{it.text}
+                <div style={{
+                  width: 6, height: 6, borderRadius: "50%",
+                  background: B.accent, flexShrink: 0,
+                }} />
+                {text}
               </div>
             ))}
           </Fade>
 
-          {/* Right col — form */}
-          <Fade delay={.15}>
+          {/* Right — form */}
+          <Fade delay={.12}>
             <div style={{
-              background: B.cream, border: `1.5px solid ${B.cream2}`,
+              background: "#fff",
+              border: `1px solid ${B.cream2}`,
               padding: "2.4rem",
             }}>
               {sent ? (
-                <div style={{ textAlign: "center", padding: "2rem 0" }}>
-                  <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>🎉</div>
+                <div style={{ textAlign: "center", padding: "2.5rem 0" }}>
                   <div style={{
-                    fontFamily: "Georgia,serif", fontSize: "1.2rem",
+                    width: 52, height: 52, borderRadius: "50%",
+                    background: `${B.accent}12`,
+                    border: `1px solid ${B.accent}28`,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    margin: "0 auto 1.2rem",
+                    fontSize: "1.4rem",
+                  }}>✓</div>
+                  <div style={{
+                    fontFamily: FONTS.serif, fontSize: "1.2rem",
                     color: B.ink, marginBottom: ".6rem",
                   }}>
                     Recebemos, {f.name}!
                   </div>
                   <p style={{
-                    fontFamily: "'Trebuchet MS',sans-serif",
-                    fontSize: ".8rem", color: B.muted, lineHeight: 1.6,
+                    fontFamily: FONTS.sys, fontSize: ".8rem",
+                    color: B.muted, lineHeight: 1.65,
                   }}>
-                    Nossa equipe vai entrar em contato via WhatsApp em breve.
+                    Nossa equipe vai entrar em contato via WhatsApp em até 24 horas.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={submit}>
                   <h3 style={{
-                    fontFamily: "Georgia,serif", fontSize: "1.1rem",
-                    color: B.ink, marginBottom: "1.3rem",
+                    fontFamily: FONTS.serif, fontSize: "1.1rem",
+                    color: B.ink, marginBottom: "1.4rem",
                   }}>Solicitar demonstração</h3>
 
                   {[
-                    { k: "name",  l: "Seu nome *",          p: "Ex: Maria Silva"        },
-                    { k: "phone", l: "WhatsApp *",           p: "(48) 9 9999-9999"       },
-                    { k: "city",  l: "Cidade / Estado *",    p: "Florianópolis, SC"      },
+                    { k: "name",  l: "Seu nome",       p: "Maria Silva"       },
+                    { k: "phone", l: "WhatsApp",        p: "(48) 9 9999-9999"  },
+                    { k: "city",  l: "Cidade / Estado", p: "Florianópolis, SC" },
                   ].map(fi => (
                     <div key={fi.k} style={{ marginBottom: ".9rem" }}>
-                      <label style={LABEL}>{fi.l}</label>
+                      <label style={{
+                        display: "block",
+                        fontFamily: FONTS.sys, fontSize: ".6rem",
+                        letterSpacing: ".1em", textTransform: "uppercase",
+                        color: B.muted, marginBottom: ".32rem",
+                      }}>{fi.l}</label>
                       <input
                         type="text" value={f[fi.k]} required
                         placeholder={fi.p}
                         onChange={e => setF({ ...f, [fi.k]: e.target.value })}
-                        style={INPUT_BASE}
-                        onFocus={e  => e.target.style.borderColor = B.terra}
-                        onBlur={e   => e.target.style.borderColor = B.latte}
+                        style={inputStyle}
+                        onFocus={e  => e.target.style.borderColor = B.accent}
+                        onBlur={e   => e.target.style.borderColor = B.line}
                       />
                     </div>
                   ))}
 
                   <div style={{ marginBottom: "1.4rem" }}>
-                    <label style={LABEL}>Segmento *</label>
-                    <select value={f.seg} onChange={e => setF({ ...f, seg: e.target.value })}
-                      style={{ ...INPUT_BASE }}>
+                    <label style={{
+                      display: "block",
+                      fontFamily: FONTS.sys, fontSize: ".6rem",
+                      letterSpacing: ".1em", textTransform: "uppercase",
+                      color: B.muted, marginBottom: ".32rem",
+                    }}>Segmento</label>
+                    <select
+                      value={f.seg}
+                      onChange={e => setF({ ...f, seg: e.target.value })}
+                      style={{ ...inputStyle }}
+                    >
                       <option value="padaria">Padaria / Confeitaria</option>
                       <option value="cafe">Café / Coffee Shop</option>
+                      <option value="restaurante">Restaurante</option>
+                      <option value="adega">Adega / Loja de Vinhos</option>
                       <option value="conveniencia">Conveniência</option>
-                      <option value="industria">Indústria de Panificação</option>
                       <option value="rede">Rede / Franquia</option>
                     </select>
                   </div>
 
-                  <button type="submit" className="gt-btn-primary"
-                    style={{ width: "100%", justifyContent: "center", padding: ".85rem" }}>
+                  <button
+                    type="submit"
+                    className="gt-btn gt-btn-primary"
+                    style={{ width: "100%", justifyContent: "center", padding: ".82rem" }}
+                  >
                     Quero minha demonstração →
                   </button>
 
                   <p style={{
-                    fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".6rem",
+                    fontFamily: FONTS.sys, fontSize: ".6rem",
                     color: B.muted, textAlign: "center", marginTop: ".7rem",
                   }}>
-                    Sem spam. Contato apenas via WhatsApp.
+                    Sem spam. Retorno exclusivo via WhatsApp.
                   </p>
                 </form>
               )}

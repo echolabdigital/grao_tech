@@ -1,31 +1,48 @@
 import { useState, useEffect, useRef } from "react";
 
 /* ══════════════════════════════════════════════
-   BRAND TOKENS — GRÃO TECH v1.0
-   by NewtonIA
+   GRÃO TECH — Design System v2
+   Paleta sóbria, editorial, food-tech premium
 ══════════════════════════════════════════════ */
 export const B = {
-  // Core
-  ink:      "#120800",
-  brown:    "#2E1206",
-  terra:    "#B8421A",
-  caramel:  "#D4851A",
-  gold:     "#E8B840",
-  wheat:    "#F0D080",
-  // Light
-  cream:    "#FAF3E6",
-  cream2:   "#F0E6CE",
-  latte:    "#D4C0A0",
-  sand:     "#C8B090",
-  // Accent
-  sage:     "#2D5C3E",
-  sageLight:"#3E7D56",
-  // Neutral
-  muted:    "#8C7058",
-  white:    "#FFFCF5",
+  // Dark UI
+  bg:        "#09090B",
+  surface:   "#111114",
+  surface2:  "#18181C",
+  line:      "rgba(255,255,255,.07)",
+  lineHi:    "rgba(255,255,255,.14)",
+
+  // Text on dark
+  text:      "#FAF9F7",
+  textMid:   "rgba(250,249,247,.52)",
+  textLow:   "rgba(250,249,247,.26)",
+
+  // Brand
+  accent:    "#E8622A",
+  accentLo:  "rgba(232,98,42,.13)",
+  gold:      "#F2B135",
+  goldLo:    "rgba(242,177,53,.12)",
+
+  // Light sections
+  cream:     "#F9F5EE",
+  cream2:    "#EEE8D8",
+  latte:     "#D4B896",
+  sand:      "#C4A47C",
+
+  // Text on light
+  ink:       "#0C0806",
+  brown:     "#2C1206",
+  muted:     "#7A6050",
+
+  // Compat
+  terra:     "#E8622A",
+  caramel:   "#D4851A",
+  wheat:     "#F0D080",
+  white:     "#F9F5EE",
+  sage:      "#1B7A3E",
+  sageLight: "#27A356",
 };
 
-/* ── Scroll position ── */
 export function useScroll() {
   const [y, setY] = useState(0);
   useEffect(() => {
@@ -36,7 +53,6 @@ export function useScroll() {
   return y;
 }
 
-/* ── Intersection observer ── */
 export function useInView(ref, threshold = 0.12) {
   const [v, setV] = useState(false);
   useEffect(() => {
@@ -51,22 +67,20 @@ export function useInView(ref, threshold = 0.12) {
   return v;
 }
 
-/* ── Fade-in on scroll ── */
-export function Fade({ children, delay = 0, up = 32 }) {
+export function Fade({ children, delay = 0, up = 28 }) {
   const ref = useRef(null);
   const v   = useInView(ref);
   return (
     <div ref={ref} style={{
-      opacity:   v ? 1 : 0,
-      transform: v ? "none" : `translateY(${up}px)`,
-      transition: `opacity .65s ease ${delay}s, transform .65s ease ${delay}s`,
+      opacity:    v ? 1 : 0,
+      transform:  v ? "none" : `translateY(${up}px)`,
+      transition: `opacity .7s ease ${delay}s, transform .7s ease ${delay}s`,
     }}>
       {children}
     </div>
   );
 }
 
-/* ── Animated counter ── */
 export function Counter({ to, suffix = "", prefix = "" }) {
   const [n, setN] = useState(0);
   const ref = useRef(null);
@@ -85,11 +99,21 @@ export function Counter({ to, suffix = "", prefix = "" }) {
   return <span ref={ref}>{prefix}{n.toLocaleString("pt-BR")}{suffix}</span>;
 }
 
-/* ── Global CSS (inject once at root) ── */
+/* System font stack — mais limpa que Trebuchet para corpo */
+const SYS = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`;
+
+export const FONTS = { sys: SYS, serif: "Georgia, 'Times New Roman', serif" };
+
 export const GLOBAL_CSS = `
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: ${B.cream}; font-family: 'Trebuchet MS', sans-serif; overflow-x: hidden; }
+  body {
+    background: ${B.bg};
+    font-family: ${SYS};
+    color: ${B.text};
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
 
   @keyframes grain {
     0%,100%{ transform: translate(0,0) }
@@ -100,43 +124,50 @@ export const GLOBAL_CSS = `
   }
   @keyframes floatY {
     0%,100%{ transform: translateY(0) }
-    50%{ transform: translateY(-10px) }
+    50%{ transform: translateY(-12px) }
   }
   @keyframes rotateSlow {
     from{ transform: rotate(0deg) }
     to{   transform: rotate(360deg) }
   }
   @keyframes pulsering {
-    0%,100%{ box-shadow: 0 0 0 3px rgba(232,184,64,.25) }
-    50%{     box-shadow: 0 0 0 8px rgba(232,184,64,.07)  }
+    0%,100%{ opacity: 1 }
+    50%{     opacity: .4 }
   }
   @keyframes scrolldot {
-    0%,100%{ opacity:.8; transform: translateY(0)  }
+    0%,100%{ opacity:.7; transform: translateY(0)  }
     50%{     opacity:.2; transform: translateY(8px) }
   }
+  @keyframes shimmer {
+    0%{   background-position: -200% center }
+    100%{ background-position:  200% center }
+  }
+
+  .gt-btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .7rem 1.8rem;
+    font-family: ${SYS};
+    font-size: .76rem; font-weight: 600;
+    letter-spacing: .04em;
+    cursor: pointer; text-decoration: none;
+    border: none; transition: opacity .2s, transform .18s;
+  }
+  .gt-btn:hover { opacity: .88; transform: translateY(-2px); }
+  .gt-btn:active { transform: translateY(0); }
 
   .gt-btn-primary {
-    background: ${B.terra}; color: #fff; border: none;
-    padding: .75rem 2rem;
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: .75rem; font-weight: 700;
-    letter-spacing: .12em; text-transform: uppercase;
-    cursor: pointer; text-decoration: none;
-    display: inline-flex; align-items: center; gap: .5rem;
-    transition: background .2s, transform .2s;
+    background: ${B.accent}; color: #fff;
   }
-  .gt-btn-primary:hover { background: ${B.brown}; transform: translateY(-2px); }
+  .gt-btn-ghost {
+    background: rgba(255,255,255,.07);
+    color: ${B.text};
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .gt-btn-ghost:hover { background: rgba(255,255,255,.12); }
 
-  .gt-btn-outline {
-    background: transparent; color: ${B.cream};
-    border: 1.5px solid rgba(250,243,230,.3);
-    padding: .72rem 1.8rem;
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: .73rem; font-weight: 600;
-    letter-spacing: .1em; text-transform: uppercase;
-    cursor: pointer; text-decoration: none;
-    display: inline-flex; align-items: center;
-    transition: border-color .2s, color .2s;
+  .label {
+    font-family: ${SYS};
+    font-size: .6rem; letter-spacing: .2em;
+    text-transform: uppercase;
   }
-  .gt-btn-outline:hover { border-color: ${B.gold}; color: ${B.gold}; }
 `;

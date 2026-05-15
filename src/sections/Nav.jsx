@@ -1,11 +1,11 @@
-import { B, useScroll } from "../App";
+import { B, useScroll, FONTS } from "../App";
 import { GTLogo } from "../Logo";
 
 const LINKS = [
   ["Soluções",      "#solucoes"],
   ["Como funciona", "#como"],
   ["Planos",        "#planos"],
-  ["Clientes",      "#clientes"],
+  ["Demo",          "#demo"],
 ];
 
 export default function Nav() {
@@ -15,40 +15,39 @@ export default function Nav() {
   return (
     <nav style={{
       position: "fixed", top: 0, left: 0, right: 0, zIndex: 200,
-      height: 72,
-      background:    solid ? "rgba(250,243,230,.96)" : "transparent",
-      backdropFilter: solid ? "blur(12px)" : "none",
-      boxShadow:     solid ? "0 1px 20px rgba(18,8,0,.07)" : "none",
-      transition: "background .35s, box-shadow .35s",
+      height: 60,
+      background:     solid ? "rgba(9,9,11,.92)"   : "transparent",
+      backdropFilter: solid ? "blur(16px) saturate(1.4)" : "none",
+      borderBottom:   solid ? `1px solid ${B.line}` : "none",
+      transition: "background .35s, border-color .35s",
       display: "flex", alignItems: "center",
     }}>
       <div style={{
-        maxWidth: 1180, width: "100%", margin: "0 auto",
+        maxWidth: 1200, width: "100%", margin: "0 auto",
         padding: "0 1.5rem",
-        display: "flex", alignItems: "center", gap: "1.5rem",
+        display: "flex", alignItems: "center", gap: "2rem",
       }}>
-        <GTLogo variant={solid ? "dark" : "light"} size={36} />
+        <GTLogo variant="light" size={34} />
         <div style={{ flex: 1 }} />
 
         {LINKS.map(([label, href]) => (
           <a key={label} href={href} style={{
-            fontFamily: "'Trebuchet MS',sans-serif",
-            fontSize: ".75rem", letterSpacing: ".06em",
-            textTransform: "uppercase",
-            color:       solid ? B.brown : B.cream,
-            textDecoration: "none", opacity: .8,
-            transition: "opacity .2s",
+            fontFamily: FONTS.sys,
+            fontSize: ".78rem", letterSpacing: ".01em",
+            color: B.textMid,
+            textDecoration: "none",
+            transition: "color .15s",
           }}
-            onMouseEnter={e => e.target.style.opacity = 1}
-            onMouseLeave={e => e.target.style.opacity = .8}
+            onMouseEnter={e => e.target.style.color = B.text}
+            onMouseLeave={e => e.target.style.color = B.textMid}
           >
             {label}
           </a>
         ))}
 
-        <a href="#contato" className="gt-btn-primary"
-          style={{ padding: ".5rem 1.4rem", fontSize: ".68rem" }}>
-          Começar →
+        <a href="#contato" className="gt-btn gt-btn-primary"
+          style={{ padding: ".45rem 1.2rem", fontSize: ".72rem" }}>
+          Começar agora
         </a>
       </div>
     </nav>
