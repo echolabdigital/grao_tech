@@ -1,21 +1,42 @@
 import { useState, useEffect } from "react";
 import { B, Counter } from "../App";
 import { GTMark } from "../Logo";
+import { useSegment, SEGMENTS } from "../segments";
 
-const CHANNELS = ["iFood", "WhatsApp", "App Próprio", "PIX", "PDV"];
+const SEGMENT_KEYS = ["padaria", "cafe", "restaurante", "adega"];
 
 const METRICS = [
-  { to: 520,     suf: "+",   pre: "",   label: "negócios ativos"  },
-  { to: 3100000, suf: "+",   pre: "R$", label: "em vendas/mês"    },
-  { to: 48,      suf: "h",   pre: "",   label: "para ir ao ar"    },
+  { to: 520,     suf: "+",   pre: "",    label: "negócios ativos"  },
+  { to: 3100000, suf: "+",   pre: "R$",  label: "em vendas/mês"    },
+  { to: 48,      suf: "h",   pre: "",    label: "para ir ao ar"     },
 ];
 
 export default function Hero() {
+  const { segment, setSegment } = useSegment();
+  const seg = SEGMENTS[segment];
+
   const [tick, setTick] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
   useEffect(() => {
     const t = setInterval(() => setTick(x => x + 1), 2800);
     return () => clearInterval(t);
   }, []);
+
+  function switchSegment(key) {
+    if (key === segment) return;
+    setAnimating(true);
+    setTimeout(() => {
+      setSegment(key);
+      setAnimating(false);
+    }, 180);
+  }
+
+  const textStyle = {
+    transition: "opacity .18s ease, transform .18s ease",
+    opacity: animating ? 0 : 1,
+    transform: animating ? "translateY(10px)" : "translateY(0)",
+  };
 
   return (
     <section style={{
@@ -34,12 +55,13 @@ export default function Hero() {
         animation: "grain 8s steps(2) infinite",
       }} />
 
-      {/* Glow orbs */}
+      {/* Glow orb — segment-aware */}
       <div style={{
         position: "absolute", right: "-10%", top: "5%",
         width: 600, height: 600, borderRadius: "50%",
-        background: `radial-gradient(circle, rgba(184,66,26,.18), transparent 65%)`,
+        background: `radial-gradient(circle, ${seg.glow}, transparent 65%)`,
         pointerEvents: "none", animation: "floatY 8s ease-in-out infinite",
+        transition: "background 0.6s ease",
       }} />
       <div style={{
         position: "absolute", left: "-5%", bottom: "-10%",
@@ -59,7 +81,52 @@ export default function Hero() {
       {/* Content */}
       <div style={{ maxWidth: 1180, margin: "0 auto", width: "100%", position: "relative", zIndex: 1 }}>
 
-        {/* Eyebrow */}
+        {/* Segment Switcher */}
+        <div style={{
+          display: "flex", flexWrap: "wrap", gap: ".5rem",
+          marginBottom: "2rem",
+        }}>
+          {SEGMENT_KEYS.map(key => {
+            const s = SEGMENTS[key];
+            const active = key === segment;
+            return (
+              <button
+                key={key}
+                onClick={() => switchSegment(key)}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: ".4rem",
+                  padding: ".38rem 1rem",
+                  background: active ? s.accent : "rgba(255,255,255,.06)",
+                  border: `1px solid ${active ? s.accent : "rgba(255,255,255,.14)"}`,
+                  color: active ? "#fff" : "rgba(250,243,230,.55)",
+                  fontFamily: "'Trebuchet MS',sans-serif",
+                  fontSize: ".68rem", fontWeight: active ? 700 : 400,
+                  letterSpacing: ".06em",
+                  cursor: "pointer",
+                  transition: "all .22s ease",
+                  outline: "none",
+                }}
+                onMouseEnter={e => {
+                  if (!active) {
+                    e.currentTarget.style.borderColor = s.accent + "88";
+                    e.currentTarget.style.color = "rgba(250,243,230,.85)";
+                  }
+                }}
+                onMouseLeave={e => {
+                  if (!active) {
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,.14)";
+                    e.currentTarget.style.color = "rgba(250,243,230,.55)";
+                  }
+                }}
+              >
+                <span style={{ fontSize: ".9rem" }}>{s.emoji}</span>
+                {s.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Eyebrow badge */}
         <div style={{
           display: "inline-flex", alignItems: "center", gap: ".6rem",
           border: "1px solid rgba(232,184,64,.35)",
@@ -74,59 +141,79 @@ export default function Hero() {
             fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".58rem",
             letterSpacing: ".22em", textTransform: "uppercase", color: B.wheat,
           }}>
-            Tecnologia para padarias, cafés e conveniências
+            Tecnologia para padarias, cafés, restaurantes e adegas
           </span>
         </div>
 
-        {/* H1 */}
-        <h1 style={{
-          fontFamily: "Georgia,'Times New Roman',serif",
-          fontSize: "clamp(2.6rem,7vw,5.4rem)",
-          color: B.cream, fontWeight: 400, lineHeight: 1.06,
-          maxWidth: 820, marginBottom: "1.2rem",
-        }}>
-          Sua padaria no digital,{" "}
-          <span style={{ color: B.wheat, fontStyle: "italic" }}>sem abrir mão</span>{" "}
-          do que é seu.
-        </h1>
+        {/* H1 — animated on segment change */}
+        <div style={textStyle}>
+          <h1 style={{
+            fontFamily: "Georgia,'Times New Roman',serif",
+            fontSize: "clamp(2.6rem,7vw,5.4rem)",
+            color: B.cream, fontWeight: 400, lineHeight: 1.06,
+            maxWidth: 820, marginBottom: "1.2rem",
+          }}>
+            {seg.headlineA}{" "}
+            <em style={{ color: B.wheat, fontStyle: "italic" }}>{seg.headlineItalic}</em>
+            {seg.headlineB ? <> {seg.headlineB}</> : null}
+          </h1>
 
-        {/* Channel tags */}
-        <div style={{
-          display: "flex", alignItems: "center", gap: ".6rem",
-          marginBottom: "1.6rem", flexWrap: "wrap",
-        }}>
-          <span style={{
-            fontFamily: "'Trebuchet MS',sans-serif",
-            fontSize: ".8rem", color: "rgba(250,243,230,.5)",
-          }}>Conectado com</span>
+          {/* Channel tags */}
+          <div style={{
+            display: "flex", alignItems: "center", gap: ".6rem",
+            marginBottom: "1.6rem", flexWrap: "wrap",
+          }}>
+            <span style={{
+              fontFamily: "'Trebuchet MS',sans-serif",
+              fontSize: ".8rem", color: "rgba(250,243,230,.5)",
+            }}>Conectado com</span>
 
-          {CHANNELS.map((ch, i) => (
-            <span key={ch} style={{
-              fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".68rem",
-              fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase",
-              padding: ".2rem .7rem",
-              background:  i === tick % CHANNELS.length ? B.terra  : "rgba(255,255,255,.06)",
-              color:       i === tick % CHANNELS.length ? "#fff"   : "rgba(250,243,230,.4)",
-              border:      "1px solid",
-              borderColor: i === tick % CHANNELS.length ? B.terra  : "rgba(255,255,255,.1)",
-              transition:  "all .4s",
-            }}>{ch}</span>
-          ))}
-        </div>
+            {seg.channels.map((ch, i) => {
+              const active = i === tick % seg.channels.length;
+              return (
+                <span key={ch} style={{
+                  fontFamily: "'Trebuchet MS',sans-serif", fontSize: ".68rem",
+                  fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase",
+                  padding: ".2rem .7rem",
+                  background: active ? seg.accent : "rgba(255,255,255,.06)",
+                  color: active ? "#fff" : "rgba(250,243,230,.4)",
+                  border: "1px solid",
+                  borderColor: active ? seg.accent : "rgba(255,255,255,.1)",
+                  transition: "all .4s",
+                }}>{ch}</span>
+              );
+            })}
+          </div>
 
-        <p style={{
-          fontFamily: "'Trebuchet MS',sans-serif", fontSize: "1.02rem",
-          color: "rgba(250,243,230,.65)", maxWidth: 520,
-          lineHeight: 1.8, marginBottom: "2.5rem",
-        }}>
-          Site e app próprios, robô no WhatsApp, gestão de encomendas e clube de fidelidade —
-          tudo integrado, tudo com a sua marca.
-        </p>
+          <p style={{
+            fontFamily: "'Trebuchet MS',sans-serif", fontSize: "1.02rem",
+            color: "rgba(250,243,230,.65)", maxWidth: 520,
+            lineHeight: 1.8, marginBottom: "2.5rem",
+          }}>
+            {seg.sub}
+          </p>
 
-        {/* CTAs */}
-        <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
-          <a href="#contato" className="gt-btn-primary">Quero meu sistema →</a>
-          <a href="#solucoes" className="gt-btn-outline">Ver soluções</a>
+          {/* CTAs */}
+          <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
+            <a
+              href="#contato"
+              style={{
+                background: seg.accent, color: "#fff", border: "none",
+                padding: ".75rem 2rem",
+                fontFamily: "'Trebuchet MS',sans-serif",
+                fontSize: ".75rem", fontWeight: 700,
+                letterSpacing: ".12em", textTransform: "uppercase",
+                cursor: "pointer", textDecoration: "none",
+                display: "inline-flex", alignItems: "center", gap: ".5rem",
+                transition: "background .2s, transform .2s",
+              }}
+              onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"}
+              onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}
+            >
+              {seg.ctaText} →
+            </a>
+            <a href="#demo" className="gt-btn-outline">Ver o sistema</a>
+          </div>
         </div>
 
         {/* Metrics row */}
