@@ -3,8 +3,8 @@ import { B, Fade, FONTS } from "../App";
 const PLANS = [
   {
     name: "Essencial",
-    setup: 1499,
-    monthly: 399,
+    setup: 1497,
+    monthly: 597,
     highlight: false,
     desc: "Site, cardápio e pedidos no ar em até 7 dias.",
     cta: "Começar",
@@ -20,8 +20,8 @@ const PLANS = [
   },
   {
     name: "Profissional",
-    setup: 2999,
-    monthly: 799,
+    setup: 2997,
+    monthly: 997,
     highlight: true,
     desc: "Plataforma completa para quem quer escalar e fidelizar.",
     cta: "Quero o Profissional",
