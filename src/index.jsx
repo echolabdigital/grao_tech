@@ -37,7 +37,7 @@ export default function GraoTech() {
 
 /* ── Proof Strip ─────────────────────────────── */
 function ProofStrip() {
-  const items = ["iFood", "WhatsApp Business", "PIX", "Stone", "App Store", "Google Play"];
+  const items = ["iFood", "WhatsApp Business", "PIX", "Stone"];
   return (
     <div style={{
       background: "#fff",
