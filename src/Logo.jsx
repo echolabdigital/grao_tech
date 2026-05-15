@@ -1,8 +1,8 @@
 /*
-  Grão Tech — Logo System v5
+  Grão Tech — Logo System v6
 
-  GTMark  — wheat ear with solid filled grain kernels + PCB circuit traces
-  GTLogo  — horizontal lockup (mark + wordmark)
+  GTMark  — rotated ellipse grain kernels + PCB circuit traces in a circle
+  GTLogo  — horizontal lockup
 */
 
 const ORANGE = "#F26522";
@@ -19,61 +19,43 @@ export function GTMark({ size = 40, color = ORANGE }) {
       {/* Outer circle */}
       <circle cx="100" cy="100" r="88" stroke={color} strokeWidth="5" />
 
-      {/* Top spike — single pointed kernel */}
-      <path
-        d="M100 28 C92 34, 90 47, 100 57 C110 47, 108 34, 100 28Z"
-        fill={color}
-      />
+      {/* Top spike — upright oval */}
+      <ellipse cx="100" cy="42" rx="11" ry="20" fill={color} />
 
-      {/* Left grain kernels — solid teardrop shapes attached to stem */}
-      <path
-        d="M100 60 C86 46, 52 62, 54 71 C52 80, 68 93, 100 80Z"
-        fill={color}
-      />
-      <path
-        d="M100 88 C86 74, 52 90, 54 99 C52 108, 68 121, 100 108Z"
-        fill={color}
-      />
-      <path
-        d="M100 116 C86 102, 52 118, 54 127 C52 136, 68 149, 100 136Z"
-        fill={color}
-      />
+      {/* Left grain kernels — rotated ellipses pointing upper-left */}
+      <ellipse cx="79" cy="68"  rx="14" ry="23" fill={color} transform="rotate(-38 79 68)"  />
+      <ellipse cx="77" cy="96"  rx="14" ry="23" fill={color} transform="rotate(-38 77 96)"  />
+      <ellipse cx="79" cy="124" rx="14" ry="23" fill={color} transform="rotate(-38 79 124)" />
 
       {/* Right grain kernels — mirrored */}
-      <path
-        d="M100 71 C114 57, 148 73, 146 82 C148 91, 132 104, 100 91Z"
-        fill={color}
-      />
-      <path
-        d="M100 99 C114 85, 148 101, 146 110 C148 119, 132 132, 100 119Z"
-        fill={color}
-      />
+      <ellipse cx="121" cy="82"  rx="14" ry="23" fill={color} transform="rotate(38 121 82)"  />
+      <ellipse cx="123" cy="110" rx="14" ry="23" fill={color} transform="rotate(38 123 110)" />
 
-      {/* Center stem — drawn on top so it reads as the spine of the ear */}
+      {/* Center stem — drawn on top as the spine */}
       <line
-        x1="100" y1="165" x2="100" y2="52"
-        stroke={color} strokeWidth="3.5" strokeLinecap="round"
+        x1="100" y1="162" x2="100" y2="36"
+        stroke={color} strokeWidth="4" strokeLinecap="round"
       />
 
-      {/* Circuit traces — PCB-style angular lines */}
+      {/* Circuit traces */}
       <polyline
-        points="100,143 130,143 153,121"
+        points="100,141 128,141 150,121"
         stroke={color} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"
       />
       <polyline
-        points="100,153 137,153 162,134"
+        points="100,152 135,152 160,134"
         stroke={color} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"
       />
       <polyline
-        points="100,163 131,163 148,172"
+        points="100,162 131,162 148,172"
         stroke={color} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"
       />
 
       {/* PCB via endpoints */}
-      <circle cx="153" cy="121" r="6.5" stroke={color} strokeWidth="3" />
-      <circle cx="153" cy="121" r="2.5" fill={color} />
-      <circle cx="162" cy="134" r="6.5" stroke={color} strokeWidth="3" />
-      <circle cx="162" cy="134" r="2.5" fill={color} />
+      <circle cx="150" cy="121" r="6.5" stroke={color} strokeWidth="3" />
+      <circle cx="150" cy="121" r="2.5" fill={color} />
+      <circle cx="160" cy="134" r="6.5" stroke={color} strokeWidth="3" />
+      <circle cx="160" cy="134" r="2.5" fill={color} />
       <circle cx="148" cy="172" r="6.5" stroke={color} strokeWidth="3" />
       <circle cx="148" cy="172" r="2.5" fill={color} />
     </svg>
