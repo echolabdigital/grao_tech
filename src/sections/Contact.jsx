@@ -133,7 +133,8 @@ export default function Contact() {
                       style={{ ...INPUT_BASE }}>
                       <option value="padaria">Padaria / Confeitaria</option>
                       <option value="cafe">Café / Coffee Shop</option>
-                      <option value="conveniencia">Conveniência</option>
+                      <option value="restaurante">Restaurante</option>
+                      <option value="adega">Adega / Conveniência</option>
                       <option value="industria">Indústria de Panificação</option>
                       <option value="rede">Rede / Franquia</option>
                     </select>
