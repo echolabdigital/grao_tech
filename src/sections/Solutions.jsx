@@ -7,11 +7,11 @@ const SOLUTIONS = [
     title: "Site + App de Vendas",
     color: "#E8622A",
     desc: "Cardápio online com checkout próprio. PIX, cartão e boleto integrados. Zero comissão de marketplace.",
-    items: ["Cardápio com fotos e variações", "PIX e cartão integrado", "Push notifications para clientes"],
+    items: ["Cardápio com variações e preços", "PIX e cartão integrado", "Notificações para clientes"],
   },
   {
     icon: "🤖", tag: "automação",
-    title: "Robô WhatsApp",
+    title: "Agente de IA",
     color: "#128C7E",
     desc: "Fluxo de pedidos automático 24h. Envio de campanhas e promoções para sua base de clientes.",
     items: ["Atendimento e pedidos 24/7", "Campanhas segmentadas", "Integração com PDV"],
