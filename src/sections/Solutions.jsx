@@ -30,20 +30,6 @@ const SOLUTIONS = [
     desc: "A cada compra o cliente acumula pontos e troca por produtos. Sem cartãozinho físico.",
     items: ["Pontuação automática", "Ofertas personalizadas", "Régua de comunicação"],
   },
-  {
-    icon: "🏢", tag: "B2B",
-    title: "Vendas para Empresas",
-    color: "#1B7A3E",
-    desc: "Forneça para restaurantes, hotéis e empresas com tabela de preço e pedidos recorrentes.",
-    items: ["Tabela de preço B2B", "Pedidos recorrentes", "Relatório de carteira"],
-  },
-  {
-    icon: "📊", tag: "operação",
-    title: "Painel de Produção",
-    color: "#1A4D6B",
-    desc: "Todos os pedidos num painel único. Fila de produção em TV. Nunca mais esqueça nada.",
-    items: ["Fila em TV ou tablet", "Impressão de etiquetas", "Controle de estoque"],
-  },
 ];
 
 export default function Solutions() {
