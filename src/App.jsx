@@ -18,8 +18,8 @@ export const B = {
   textLow:   "rgba(250,249,247,.26)",
 
   // Brand
-  accent:    "#E8622A",
-  accentLo:  "rgba(232,98,42,.13)",
+  accent:    "#F26522",
+  accentLo:  "rgba(242,101,34,.13)",
   gold:      "#F2B135",
   goldLo:    "rgba(242,177,53,.12)",
 
@@ -35,7 +35,7 @@ export const B = {
   muted:     "#7A6050",
 
   // Compat
-  terra:     "#E8622A",
+  terra:     "#F26522",
   caramel:   "#D4851A",
   wheat:     "#F0D080",
   white:     "#F9F5EE",
@@ -99,10 +99,10 @@ export function Counter({ to, suffix = "", prefix = "" }) {
   return <span ref={ref}>{prefix}{n.toLocaleString("pt-BR")}{suffix}</span>;
 }
 
-/* System font stack — mais limpa que Trebuchet para corpo */
-const SYS = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`;
+const SYS    = `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+const SERIF  = `'Playfair Display', Georgia, 'Times New Roman', serif`;
 
-export const FONTS = { sys: SYS, serif: "Georgia, 'Times New Roman', serif" };
+export const FONTS = { sys: SYS, serif: SERIF };
 
 export const GLOBAL_CSS = `
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
