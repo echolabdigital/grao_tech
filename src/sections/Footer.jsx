@@ -4,7 +4,7 @@ import { GTLogo } from "../Logo";
 const COLS = [
   {
     title: "Soluções",
-    links: ["Site + App", "Robô WhatsApp", "Encomendas", "Clube de Pontos", "Painel de Produção"],
+    links: ["Site de Vendas", "Agente IA WhatsApp", "Encomendas", "Clube de Fidelidade", "Relatórios"],
   },
   {
     title: "Empresa",

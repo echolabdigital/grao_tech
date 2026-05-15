@@ -1,7 +1,7 @@
 import { B, Fade, FONTS } from "../App";
 
 const ORDERS = [
-  { id: "#3041", item: "Pedido via App",      val: "R$ 87,50",  status: "Entregue",  dot: "#16A34A" },
+  { id: "#3041", item: "Pedido Online",        val: "R$ 87,50",  status: "Entregue",  dot: "#16A34A" },
   { id: "#3042", item: "Encomenda · Sábado",  val: "R$ 220,00", status: "Produção",  dot: "#F2B135" },
   { id: "#3043", item: "WhatsApp · Mesa 4",   val: "R$ 53,90",  status: "Novo",      dot: "#3B82F6" },
   { id: "#3044", item: "Resgate clube",       val: "—",         status: "Fidelidade",dot: "#A855F7" },

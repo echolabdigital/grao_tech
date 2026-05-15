@@ -10,7 +10,7 @@ const PLANS = [
     cta: "Começar",
     features: [
       "Site de vendas com sua marca",
-      "Cardápio digital com fotos",
+      "Cardápio digital completo",
       "Checkout PIX + cartão",
       "Pedidos via WhatsApp",
       "Painel de gestão completo",

@@ -10,11 +10,11 @@ const SOLUTIONS = [
     items: ["Cardápio com variações e preços", "PIX e cartão integrado", "Notificações para clientes"],
   },
   {
-    icon: "🤖", tag: "automação",
+    icon: "✦", tag: "inteligência artificial",
     title: "Agente de IA",
     color: "#128C7E",
-    desc: "Fluxo de pedidos automático 24h. Envio de campanhas e promoções para sua base de clientes.",
-    items: ["Atendimento e pedidos 24/7", "Campanhas segmentadas", "Integração com PDV"],
+    desc: "Atende, tira pedidos e responde dúvidas no WhatsApp 24h — sem humano, sem demora, sem erro.",
+    items: ["Pedidos automáticos no WhatsApp", "Campanhas e reativação de clientes", "Respostas em linguagem natural"],
   },
   {
     icon: "📅", tag: "zero erro",

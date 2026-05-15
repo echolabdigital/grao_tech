@@ -6,7 +6,7 @@ import { SEGMENTS } from "../segments";
 const METRICS = [
   { to: 520,     suf: "+", pre: "",   label: "negócios ativos"  },
   { to: 3100000, suf: "+", pre: "R$", label: "em vendas/mês"    },
-  { to: 7,       suf: " dias", pre: "",  label: "para ir ao ar"    },
+  { to: 98,      suf: "%",     pre: "",  label: "satisfação clientes" },
 ];
 
 export default function Hero({ segment, setSegment }) {

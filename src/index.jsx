@@ -4,6 +4,7 @@ import { SEGMENTS } from "./segments";
 import { GTMark }   from "./Logo";
 import Nav           from "./sections/Nav";
 import Hero          from "./sections/Hero";
+import AgentShowcase from "./sections/AgentShowcase";
 import PainPoints    from "./sections/PainPoints";
 import Solutions     from "./sections/Solutions";
 import ProductShowcase from "./sections/ProductShowcase";
@@ -21,6 +22,7 @@ export default function GraoTech() {
       <Nav />
       <Hero segment={segment} setSegment={setSegment} />
       <ProofStrip />
+      <AgentShowcase />
       <PainPoints segment={segment} />
       <Solutions />
       <HowItWorks />
@@ -170,7 +172,7 @@ function IntegrationsHub() {
     { icon: "🛵", label: "iFood",    angle: 0,   color: "#EA1D2C" },
     { icon: "🌐", label: "Site",     angle: 72,  color: B.accent  },
     { icon: "📱", label: "WhatsApp", angle: 144, color: "#25D366" },
-    { icon: "🖥️", label: "PDV",      angle: 216, color: B.gold    },
+    { icon: "✦",  label: "Agente IA", angle: 216, color: B.accent  },
     { icon: "💳", label: "PIX",      angle: 288, color: "#32BCAD" },
   ];
 
@@ -208,7 +210,7 @@ function IntegrationsHub() {
 
             {[
               { icon: "🛵", name: "iFood",            desc: "Sync de cardápio e pedidos",   color: "#EA1D2C" },
-              { icon: "📱", name: "WhatsApp Business", desc: "Robô de atendimento 24h",      color: "#25D366" },
+              { icon: "📱", name: "WhatsApp Business", desc: "Agente IA de atendimento 24h",  color: "#25D366" },
               { icon: "🏧", name: "ERP",                desc: "Preços e estoque em tempo real",color: B.gold   },
               { icon: "💳", name: "PIX + Cartão",      desc: "Checkout sem intermediários",  color: "#32BCAD" },
             ].map(it => (

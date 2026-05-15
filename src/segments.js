@@ -1,30 +1,18 @@
-/*
-  Grão Tech — Dados por segmento
-  Copy e paleta pensados por vertical:
-  cada dono de negócio deve se sentir visto.
-*/
-
 export const SEGMENTS = [
   {
     id: "padaria",
     icon: "🍞",
     label: "Padaria",
-
-    // Cores
     accent:    "#E8622A",
     accentDim: "rgba(232,98,42,.18)",
     accentGlow:"rgba(232,98,42,.08)",
-
-    // Hero
     headline:  ["Pare de pagar taxa", "pra quem não", "assa nada."],
     accentWord: 1,
-    sub: "App e site com sua marca, encomendas pagas online, robô no WhatsApp e clube de fidelidade. Os seus clientes ficam com você — não com o marketplace.",
+    sub: "Site com sua marca, encomendas pagas online, Agente IA no WhatsApp e clube de fidelidade. Seus clientes ficam com você — não com o marketplace.",
     cta:       "Quero meu sistema",
     ctaDemo:   "Ver demonstração",
     channels:  ["iFood", "WhatsApp", "PIX", "Encomendas", "Site"],
     stat:      { val: "+38%", label: "em vendas diretas", desc: "nos primeiros 60 dias" },
-
-    // Dores
     pains: [
       {
         num: "01",
@@ -42,10 +30,8 @@ export const SEGMENTS = [
         body: "Ele compra toda manhã há dois anos, mas não acumula pontos, não recebe oferta exclusiva e não tem motivo para não experimentar o concorrente que abriu semana passada.",
       },
     ],
-
-    // Depoimento
     testimonial: {
-      text: "Em dois meses do app próprio, as vendas diretas subiram 38%. Paramos de pagar comissão no que era pedido via WhatsApp. O dinheiro que ficava no iFood agora fica com a gente.",
+      text: "Em dois meses com a plataforma, as vendas diretas subiram 38%. Paramos de pagar comissão no que era pedido via WhatsApp. O dinheiro que ficava no iFood agora fica com a gente.",
       name: "Carlos Menezes",
       role: "Padaria Dom Trigo · Florianópolis, SC",
       init: "C",
@@ -56,19 +42,16 @@ export const SEGMENTS = [
     id: "cafe",
     icon: "☕",
     label: "Café",
-
     accent:    "#7C4220",
     accentDim: "rgba(124,66,32,.22)",
     accentGlow:"rgba(124,66,32,.09)",
-
     headline:  ["Seu café tem alma.", "Seu sistema de vendas", "deveria ter também."],
     accentWord: 0,
-    sub: "QR code na mesa, assinatura de café, pedidos pelo WhatsApp e painel de produção na tela — sem tablet de terceiro, sem comissão de ninguém.",
+    sub: "QR code na mesa, assinatura de café, pedidos pelo WhatsApp com Agente IA e painel de produção na tela — sem comissão de ninguém.",
     cta:       "Digitalizar meu café",
     ctaDemo:   "Ver demonstração",
     channels:  ["QR Code", "WhatsApp", "Assinatura", "PIX", "Site"],
     stat:      { val: "+22%", label: "no ticket médio", desc: "com pedido pelo QR code" },
-
     pains: [
       {
         num: "01",
@@ -83,10 +66,9 @@ export const SEGMENTS = [
       {
         num: "03",
         title: "Fidelidade é cafezinho bom e nada mais.",
-        body: "Sem clube de pontos, sem push notification, sem campanha de aniversário, qualquer concorrente que abrir com um cupom de desconto vai roubar metade da sua manhã.",
+        body: "Sem clube de pontos, sem notificação automática, sem campanha de aniversário, qualquer concorrente que abrir com um cupom de desconto vai roubar metade da sua manhã.",
       },
     ],
-
     testimonial: {
       text: "O QR code na mesa aumentou nosso ticket médio em 22%. O cliente pede sem precisar chamar, acumula pontos e a fila no balcão caiu pela metade. É outra operação.",
       name: "Priya Mendonça",
@@ -99,19 +81,16 @@ export const SEGMENTS = [
     id: "restaurante",
     icon: "🍽️",
     label: "Restaurante",
-
     accent:    "#1B7A3E",
     accentDim: "rgba(27,122,62,.20)",
     accentGlow:"rgba(27,122,62,.08)",
-
     headline:  ["Menos 27% de taxa.", "Mais margem para", "quem cozinha de verdade."],
     accentWord: 0,
-    sub: "App de delivery com sua marca, reservas pelo WhatsApp, cardápio digital e programa de fidelidade — sem intermediário entre você e seu cliente.",
+    sub: "Site de delivery com sua marca, reservas pelo WhatsApp, cardápio digital e programa de fidelidade — sem intermediário entre você e seu cliente.",
     cta:       "Quero delivery próprio",
     ctaDemo:   "Ver demonstração",
     channels:  ["iFood", "Reservas", "WhatsApp", "PIX", "Site"],
     stat:      { val: "−27%", label: "em comissão paga", desc: "migrando para canal direto" },
-
     pains: [
       {
         num: "01",
@@ -129,9 +108,8 @@ export const SEGMENTS = [
         body: "Quando ele pede pelo iFood, o CPF e o e-mail vão para o iFood. Você faz o prato, eles ficam com o relacionamento. Sem os dados do cliente, você não existe fora da plataforma.",
       },
     ],
-
     testimonial: {
-      text: "Em seis meses, saímos de 80% dos pedidos pelo iFood para 45%. O ticket do app próprio é 18% maior e a margem no delivery direto dobrou. Foi a melhor decisão do ano.",
+      text: "Em seis meses, saímos de 80% dos pedidos pelo iFood para 45%. O ticket da plataforma própria é 18% maior e a margem no delivery direto dobrou. Foi a melhor decisão do ano.",
       name: "Roberto Takahashi",
       role: "Restaurante Prato Cheio · São Paulo, SP",
       init: "R",
@@ -142,19 +120,16 @@ export const SEGMENTS = [
     id: "adega",
     icon: "🍷",
     label: "Adega",
-
     accent:    "#821845",
     accentDim: "rgba(130,24,69,.20)",
     accentGlow:"rgba(130,24,69,.08)",
-
     headline:  ["Sua adega é destino.", "Trate seus clientes", "como membros."],
     accentWord: 0,
-    sub: "Clube de assinantes com curadoria mensal, loja online, pedidos especiais pelo WhatsApp e gestão de eventos — tudo com a identidade da sua adega.",
+    sub: "Clube de assinantes com curadoria mensal, loja online, pedidos especiais pelo WhatsApp com Agente IA e gestão de eventos — tudo com a identidade da sua adega.",
     cta:       "Montar minha adega digital",
     ctaDemo:   "Ver demonstração",
     channels:  ["Clube", "Loja Online", "WhatsApp", "Eventos", "PIX"],
     stat:      { val: "140", label: "assinantes em 4 meses", desc: "com clube estruturado" },
-
     pains: [
       {
         num: "01",
@@ -172,7 +147,6 @@ export const SEGMENTS = [
         body: "Degustação, jantar harmonizado, noite de espumantes — casa cheia. Mas sem check-in digital, amanhã você não sabe quem foi, não tem o e-mail de ninguém e não pode convidar de volta.",
       },
     ],
-
     testimonial: {
       text: "O clube saiu do zero para 140 assinantes em quatro meses. Receita recorrente, sem marketplace, sem comissão. Agora sei o nome, o gosto e o histórico de cada cliente.",
       name: "Ana Luísa Ferreira",
